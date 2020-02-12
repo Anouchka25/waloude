@@ -1,0 +1,358 @@
+
+	{% extends 'base.html.twig' %}
+
+    {% block title %}Accueil - Waloude Prévoyance Décès{% endblock %}
+
+    {% block body %}
+    <section class="section-form">
+		<div class="container">
+			<div class="columns is-vbottom">
+				<div class="column is-6 column-texte"><!--<p><span style='font-weight:500'>Aésio Prévoyance Décès</span><br><span style='font-weight:900'>Nous sommes le lien qui assurera l'avenir de vos proches</span></p><span class='arrow-texte icon-arrow-texte'></span>--></div>
+				<div class="column is-6 column-form">
+				
+					<!--div class="form_body_message has-text-centered">
+						Nous vous remercions.<br> Votre demande a bien été prise en compte, un conseiller va vous recontacter dans les plus brefs délais.
+					</div-->
+
+					<div class="form_body">
+						<div class="titre_form">
+							<h1 style="font-size:29px;color:#5271ff;font-weight: 700;line-height:1em;">Waloude Prévoyance Décès</h1><p style="font-size:29px;color:#5271ff; line-height:1em; margin-bottom: 20px;">Nous sommes le lien qui assurera l'avenir de vos proches.</p>
+							<!-- <h2 style="font-size:19px;margin:10px 0px"><strong>Votre étude personnalisée</strong>, c'est simple et rapide !</h2> -->
+						</div>
+
+		<form id="form" method="POST" action="form-data/formdata.php">
+			<input type="hidden" name="regime" value="0">
+			<input type="hidden" name="nbr_enfant" value="0">
+			<input type="hidden" name="assure_conjoint" value="0">
+			<input type="hidden" name="utm_campaign" id="utm_campaign" value="">
+			<input type="hidden" name="utm_source" id="utm_source" value="">
+			<input type="hidden" name="origine" id="origine" value="2go">
+        <div class="columns is-gapless is-multiline">
+				<!-- 	<div class="box_field column is-12 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Civilité *</label></div>
+								
+				<div class="column field-input">
+
+												<input class="requis is-checkradio is-small civilite" id="civilite_madame" type="radio" name="civilite" value="madame">
+							<label for="civilite_madame">Madame</label>
+													<input class="requis is-checkradio is-small civilite" id="civilite_monsieur" type="radio" name="civilite" value="monsieur">
+							<label for="civilite_monsieur">Monsieur</label>
+											
+				</div>
+
+			</div> -->
+				<!-- 	<div class="box_field column is-12 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Nom *</label></div>
+								
+				<div class="column field-input">
+
+											<input id="nom" name="nom" value="" class="input requis" type="text">
+				
+					
+				</div>
+
+			</div> -->
+					<div class="box_field column is-12 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Prénom *</label></div>
+								
+				<div class="column field-input">
+
+											<input id="prenom" name="prenom" value="" class="input requis" type="text">
+				
+					
+				</div>
+
+			</div>
+					<div class="box_field column is-12 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Email *</label></div>
+								
+				<div class="column field-input">
+
+											<input id="email" name="email" value="" class="input requis" type="email">
+					
+				</div>
+
+			</div>
+					<div class="box_field column is-6 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Téléphone *</label></div>
+								
+				<div class="column field-input">
+
+											<input id="telephone" value="" name="telephone" placeholder="__________" class="input requis tel mask" type="text">
+				
+					
+				</div>
+
+			</div>
+					<!-- <div class="box_field column is-6 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Né(e) le *</label></div>
+								
+				<div class="column field-input">
+
+											<input id="naissance" value="" name="naissance" placeholder="__/__/____" class="input requis date_naissance mask" type="text">
+				
+					
+				</div>
+
+			</div>
+					<div class="box_field column is-6 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Code postal *</label></div>
+								
+				<div class="column field-input">
+
+											<input id="zipcode" name="zipcode" value="" placeholder="_____" class="input requis cp mask" type="text">
+				
+					
+				</div>
+
+			</div>
+					<div class="box_field column is-6 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Ville </label></div>
+								
+				<div class="column field-input">
+
+											<input id="city" name="city" value="" class="input " type="text" disabled="disabled">
+				
+					
+				</div>
+
+			</div> -->
+					<div class="box_field column is-12 marge_check columns is-gapless">
+
+								
+				<div class="column field-input">
+
+											<input id="accepte" class="is-checkradio is-small" type="checkbox" name="accepte">
+						<label for="accepte" class="no_label mention">J'accepte d'être contacté(e) par Waloude à des fins commerciales, d'information ou d'enquête. À l'occasion de chaque envoi, j'aurai la possibilité de mettre fin à ces communications.</label>
+					
+				</div>
+
+			</div>
+					<div class="box_field column is-12 columns is-gapless">
+
+								
+				<div class="column field-input">
+
+											<div class="column has-text-centered container_bouton">
+							<button class="button " style="background:#5271ff;" type="submit"><span class="text">Rappelez-moi</span><span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
+							</button>
+						</div>
+					
+				</div>
+
+			</div>
+			</div>
+</form>
+						<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>
+						<div class="souscrire has-text-centered"><a href="#">Souscrire maintenant</a></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<section class="section-texte-image">
+	<div class="container container-padding">
+		<div class="columns columns-vcenter">
+			<div class="column is-7 texte">
+	
+	<p class="big" style="margin-bottom:40px;"><strong>Protéger l’avenir de votre famille, c’est essentiel avec waloude Prévoyance Décès</strong></p>
+
+	<p><strong>Même s’il est difficile d’y penser, que se passerait-il si vous veniez à disparaître ?</strong></p>
+<p style="margin-bottom:20px;">Vos proches pourront-ils assurer les frais de rapatriement  ? Comment assurer les démarches administratifs ?comment assurer la logistique une fois arriver ,comment assurer les obsèques? ...</p>
+
+
+
+<p><strong>On ne peut pas prévenir sa disparition mais il est possible de préserver l’avenir de ses proches, dès maintenant !</strong></p>
+
+<p style="margin-bottom:20px;">Douleur morale, pertes de revenus, dépenses imprévues…. un décès est toujours compliqué à gérer et remet en cause l’équilibre d'une famille.</p>
+
+<p ><strong style="text-align: justify;">Avec l'offre waloude Prévoyance Décès, vous mettez à l’abri ceux que vous aimez des conséquences financières d’un décès prématuré, par accident ou maladie, grâce au versement d’un capital décès.</strong></p>
+
+
+</div>
+			<div class="column is-5 has-text-centered">
+				<table>
+					<tr style="height: 100px;" >
+						<td style="padding-right: 20px;">
+						<i class="fas fa-check"></i>
+					   </td>
+					<td>Prise d’effet immédiate des garanties</td>
+					</tr>
+					<tr style="height: 100px;" >
+						<td>
+						<i class="fas fa-check"></i>
+					   </td>
+					<td>Liberté de choix <strong> bénéficiaires</strong></td>
+					</tr>
+					<tr style="height: 100px;" >
+						<td>
+						<i class="fas fa-check"></i>
+					   </td>
+					<td>Prise en charge des formalités administrative</td>
+					</tr>
+					<tr style="height: 100px;" >
+						<td>
+						<i class="fas fa-check"></i>
+					   </td>
+					<td>Rapatriement du corps</td>
+					</tr>
+					<tr style="height: 100px;" >
+						<td>
+						<i class="fas fa-check"></i>
+					   </td>
+					<td>Mise en disposition d’un véhicule funèbre</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>	
+
+<section class="section-texte-image">
+	<div class="container container-padding">
+		<div class="columns columns-vcenter">
+			<div class="column is-7 texte">
+	
+	<p class="big" style="margin-bottom:40px; margin-right: 30px; text-align: justify;"><strong>Avec l’offre  Prévoyance Décès, vous mettez à l’abri ceux que vous aimez, grâce au versement d'un capital décès.</strong></p>
+
+		<p style="height: 70px; font-weight: bold; color: #5271ff ; font-size: xx-large;"> Bonnes raisons de souscrire maintenant :</p>
+	</p>
+	<table>
+		<tr style="height: 100px;" >
+			<td style="padding-right: 20px;">
+				<i class="fas fa-mouse-pointer"></i>
+		   </td>
+		<td>
+			Des garanties avec prise d’effet immédiate(1).</strong>
+			</td>
+		</tr>
+		<tr style="height: 100px;" >
+			<td>
+				<i class="fas fa-mouse-pointer"></i>
+		   </td>
+		<td><strong>Couverture quelle qu'en soit la cause :</strong> maladie ou accident, vie privée ou professionnelle.</td>
+		</tr>
+		<tr style="height: 100px;" >
+			<td>
+				<i class="fas fa-mouse-pointer"></i>
+		   </td>
+		<td>Une souscription facilitée sur <strong>simple déclaration de santé(2)</strong>
+		</td>
+		</tr>
+		<tr style="height: 100px;" >
+			<td>
+				<i class="fas fa-mouse-pointer"></i>
+		   </td>
+		<td>Des prestations d’<strong>assistance</strong> incluses.
+		</td>
+		</tr>
+		<tr style="height: 100px;" >
+			<td>
+				<i class="fas fa-mouse-pointer"></i>
+		   </td>
+		<td>Liberté de <strong>choix des bénéficiaires</strong></td>
+		</tr>
+	</table>
+</div>
+		<div class="col-md-5 right-column pointsforts">
+		<!-- <img src="fichiers/pointsforts.png"> -->
+
+		<table>
+			<caption style="margin-bottom: 30px; margin-top: 20px; color: #5271ff; font-weight: bold; font-size: xx-large;">Les points forts</caption>
+			
+			<tr style="height: 100px;" >
+				<td style="padding-right: 20px;">
+					<img src="./fichiers/icone.png" alt="" width="55" height="55"></i>
+			   </td>
+			<td>
+				Pas de formalités médicales
+				</td>
+			</tr>
+
+			<tr style="height: 100px;" >
+				<td style="padding-right: 20px;">
+					<img src="./fichiers/icone.png" alt="" width="55" height="55"></i>
+			   </td>
+			<td>
+				Des volontés respectées.
+				</td>
+			</tr>
+
+			<tr style="height: 100px;" >
+				<td style="padding-right: 20px;">
+					<img src="./fichiers/icone.png" alt="" width="55" height="55"></i>
+			   </td>
+			<td>
+				Des garanties qui s’adaptent au coût des obsèques.
+				</td>
+			</tr>
+
+			<tr style="height: 100px;" >
+				<td style="padding-right: 20px;">
+					<img src="./fichiers/icone.png" alt="" width="55" height="55"></i>
+			   </td>
+			<td>
+				Assistance immédiate pour vous et vos proches.
+				</td>
+			</tr>
+
+			<tr style="height: 100px;" >
+				<td style="padding-right: 20px;">
+					<img src="./fichiers/icone.png" alt="" width="55" height="55"></i>
+			   </td>
+			<td>
+				Capital versé au(x) bénéficiaire(s) de votre choix.
+				</td>
+			</tr>
+
+			<tr style="height: 100px;" >
+				<td style="padding-right: 20px;">
+					<img src="./fichiers/icone.png" alt="" width="55" height="55"></i>
+			   </td>
+			<td>
+				Des garanties modifiables à tout moment.
+				</td>
+			</tr>
+		</table>                                                    
+		</div>
+	</div>
+</section>	
+
+<section class="section-texte-image">
+	<h2  class="container" style="margin-bottom: 20px; color:#5271ff; font-size: xx-large; font-weight: bold; ">En bref : nos formules et garanties Assurance </h2>
+	<div class="container container-padding">
+		<div class="columns columns-vcenter">
+			<div class="column is-4 texte blocblue">
+				<p>Rapatriement du corps<br><br>
+					Prise en charge total<br><br>
+					Démarches administratives<br>
+					</p>
+			</div>
+			
+			<div class="column is-4 texte blocblue ">
+				<p>Arriver au pays<br><br>
+					Mise en disposition véhicule funèbre<br><br>
+					</p>
+			</div>
+			
+			<div class="column is-4 texte blocblue ">
+				<p>Versé au(x) bénéficiaire(s) désigné(s)
+					La somme de 1 Million de CFA 
+					</p>
+            </div>
+
+	</div>
+</section>
+
+{% endblock %}

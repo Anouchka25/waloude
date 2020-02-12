@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+<div class="container">
+<div class="columns">
+<div class="column is-6 box">
+<h1 class="title is-large"> Se connecter </h1>		
+<form action="" method="POST">
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input is-large" type="email" placeholder="Email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left">
+    <input class="input is-large" type="password" placeholder="Mot de passe">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <button class="button is-success is-large">
+      Connexion
+    </button>
+  </p>
+</div>
+</form>
+<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>
+<div class="souscrire has-text-centered"><a href="#">Inscription</a></div>
+</div>
+</div>
+</div>
+
+{% endblock %}

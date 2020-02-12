@@ -1,0 +1,45 @@
+<div class="container">
+ {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    <div class="form-group">
+     {{ form_label(form.email, "Email") }}
+
+     {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.email) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+     {{ form_label(form.password, "Mot de passe") }}
+
+     {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.password) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    {#
+    <div class="form-group">
+     {{ form_label(form.confirm_password, "Confirmez mot de passe") }}
+
+     {# Affichage des erreurs pour ce champ précis. 
+    {{ form_errors(form.confirm_password) }}
+
+      {# Génération de l'input. 
+      {{ form_widget(form.confirm_password, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    #}
+
+    
+
+    </fieldset>
+  <button class="btn btn-primary">{{ button_label|default('Inscription') }}</button>
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_login') }}">Connexion</a>
+
+    </div>
