@@ -1,83 +1,135 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+	{% extends 'base.html.twig' %}
 
-{% block body %}
+    {% block title %}Inscription - Waloude{% endblock %}
 
-<div class="container">
-<div class="columns">
-<div class="column is-6 box">
-<h1 class="title is-large"> S'inscrire </h1>		
-{{ form_start(form) }}
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-     {# Affichage des erreurs pour ce champ précis. #}
+    {% block body %}
+    <section class="section-form">
+		<div class="container">
+			<div class="columns is-vbottom">
+				<div class="column is-6 column-texte"><!--<p><span style='font-weight:500'>Aésio Prévoyance Décès</span><br><span style='font-weight:900'>Nous sommes le lien qui assurera l'avenir de vos proches</span></p><span class='arrow-texte icon-arrow-texte'></span>--></div>
+				<div class="column is-6 column-form">
+				
+					<!--div class="form_body_message has-text-centered">
+						Nous vous remercions.<br> Votre demande a bien été prise en compte, un conseiller va vous recontacter dans les plus brefs délais.
+					</div-->
+
+					<div class="form_body">
+						<div class="titre_form">
+							<h1 style="font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">Inscription à Waloude</h1>
+							<!-- <h2 style="font-size:19px;margin:10px 0px"><strong>Votre étude personnalisée</strong>, c'est simple et rapide !</h2> -->
+						</div>
+
+		<form id="form" method="POST" action="form-data/formdata.php">
+			<input type="hidden" name="regime" value="0">
+			<input type="hidden" name="nbr_enfant" value="0">
+			<input type="hidden" name="assure_conjoint" value="0">
+			<input type="hidden" name="utm_campaign" id="utm_campaign" value="">
+			<input type="hidden" name="utm_source" id="utm_source" value="">
+			<input type="hidden" name="origine" id="origine" value="2go">
+        <div class="columns is-gapless is-multiline">
+
+					<div class="box_field column is-12 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Pseudo *</label></div>
+								
+				<div class="column field-input">
+
+											 {# Affichage des erreurs pour ce champ précis. #}
     {{ form_errors(form.username) }}
 
       {# Génération de l'input. #}
       {{ form_widget(form.username) }}
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-    {# Affichage des erreurs pour ce champ précis. #}
+				
+					
+				</div>
+
+			</div>
+
+      {# Email -debut. #}
+					<div class="box_field column is-12 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Email *</label></div>
+								
+				<div class="column field-input">
+
+        {# Affichage des erreurs pour ce champ précis. #}
     {{ form_errors(form.email) }}
 
-      {# Génération de l'input. #}
-      {{ form_widget(form.email, {'attr': {'class': 'is-large'}}) }}
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-     {# Affichage des erreurs pour ce champ précis. #}
-    {{ form_errors(form.password) }}
+											 {{ form_widget(form.email) }}
+					
+				</div>
 
-      {# Génération de l'input. #}
-      {{ form_widget(form.password, {'attr': {'class': 'is-large'}}) }}
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    {# Affichage des erreurs pour ce champ précis. #}
+			</div>
+          {# Email -fin. #}
+
+           {# Email -password. #}
+					<div class="box_field column is-12 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Mot de passe *</label></div>
+								
+				<div class="column field-input">
+  
+   {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.password) }}
+											 {{ form_widget(form.password) }}
+					
+				</div>
+
+			</div>
+          {# password -fin. #}
+
+ 
+
+      <div class="box_field column is-12 columns is-gapless">
+
+									<div class="column field-label is-narrow"><label class="label">Confirmation du mot de passe *</label></div>
+                  
+								
+				<div class="column field-input">
+        {# Affichage des erreurs pour ce champ précis. #}
     {{ form_errors(form.confirmPassword) }}
 
-      {# Génération de l'input. #}
-      {{ form_widget(form.confirmPassword, {'attr': {'class': 'is-large'}}) }}
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <button class="button is-success is-large">
-      Inscription
-    </button>
-  </p>
-</div>
-{{ form_end(form) }}
-<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>
-<div class="souscrire has-text-centered"><a href="{{ path('app_login') }}">Connexion</a></div>
-</div>
-</div>
-</div>
+
+											 {{ form_widget(form.confirmPassword) }}
+					
+				</div>
+
+			</div>
+
+					<div class="box_field column is-12 marge_check columns is-gapless">
+
+								
+				<div class="column field-input">
+
+											<input id="accepte" class="is-checkradio is-small" type="checkbox" name="accepte">
+						<label for="accepte" class="no_label mention">J'accepte les <a href="#">conditions générales d'utilisation</a>.</label>
+					
+				</div>
+
+			</div>
+					<div class="box_field column is-12 columns is-gapless">
+
+								
+				<div class="column field-input">
+
+											<div class="column has-text-centered container_bouton">
+							<button class="button " style="background:#5271ff;" type="submit"><span class="text">Je m'inscris</span><span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
+							</button>
+						</div>
+					
+				</div>
+
+			</div>
+			</div>
+</form>
+						<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>
+            <div class="souscrire has-text-centered"><a href="{{ path('app_login') }}">Se connecter</a></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 {% endblock %}

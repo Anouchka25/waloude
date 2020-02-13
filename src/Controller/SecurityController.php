@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 //use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\DependencyInjection\ExpressionLanguageProvider;
 
 /**
  * @Route("/")
@@ -51,7 +52,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/connexion", name="app_login")
      */
     public function login(Request $request, AuthenticationUtils $authenticationUtils)
     {

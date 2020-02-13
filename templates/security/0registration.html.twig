@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+<div class="container">
+<div class="columns">
+<div class="column is-6 box">
+<h1 class="title is-large"> S'inscrire </h1>		
+{{ form_start(form) }}
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+     {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.username) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(form.username) }}
+    <span class="icon is-small is-left">
+      <i class="fas fa-user-alt"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.email) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(form.email) }}
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+     {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.password) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(form.password) }}
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left">
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.confirmPassword) }}
+
+      {# Génération de l'input. #}
+      {{ form_widget(form.confirmPassword) }}
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <button class="button is-success is-large">
+      Inscription
+    </button>
+  </p>
+</div>
+{{ form_end(form) }}
+<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>
+<div class="souscrire has-text-centered"><a href="{{ path('app_login') }}">Connexion</a></div>
+</div>
+</div>
+</div>
+
+{% endblock %}
