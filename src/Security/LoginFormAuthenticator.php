@@ -48,13 +48,13 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     public function getCredentials(Request $request)
     {
         $credentials = [
-            'username' => $request->request->get('username'),
+            'email' => $request->request->get('email'),
             'password' => $request->request->get('password'),
             'csrf_token' => $request->request->get('_csrf_token'),
         ];
         $request->getSession()->set(
             Security::LAST_USERNAME,
-            $credentials['username']
+            $credentials['email']
         );
 
         return $credentials;
@@ -67,11 +67,11 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             throw new InvalidCsrfTokenException();
         }
 
-        $user = $this->entityManager->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
+        $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Username could not be found.');
+            throw new CustomUserMessageAuthenticationException('Cet adresse email est introuvable.');
         }
 
         return $user;
@@ -79,6 +79,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
+
         return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
     }
 
@@ -90,7 +91,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
-        return new RedirectResponse($this->router->generate('moncompte'));
+        return new RedirectResponse($this->router->generate('contrat_new'));
     }
 
     protected function getLoginUrl()

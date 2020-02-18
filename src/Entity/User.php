@@ -40,7 +40,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(
-     * min="8",
+     * min="3",
      * max="12",
      * minMessage="Votre mot de passe doit faire minimum 8 caractères",
      * maxMessage="Votre mot de passe doit faire maximum 12 caractères"
@@ -50,13 +50,11 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
      * @Assert\EqualTo(propertyPath="password")
      */
-    private $confirmPassword;
+    public $confirmPassword;
 
     /**
-     * @ORM\Column(type="json")
      */
     private $roles = [];
 
@@ -102,7 +100,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getConfirmPassword(): ?string
+/*     public function getConfirmPassword(): ?string
     {
         return $this->password;
     }
@@ -112,7 +110,7 @@ class User implements UserInterface
         $this->password = $password;
 
         return $this;
-    }
+    } */
 
     public function eraseCredentials()
     {

@@ -4,7 +4,7 @@
     {% block title %}Inscription - Waloude{% endblock %}
 
     {% block body %}
-    <section class="section-form">
+    <section class="section-form" style="background-image: url(../fichiers/img1.jpg) !important;">
 		<div class="container">
 			<div class="columns is-vbottom">
 				<div class="column is-6 column-texte"><!--<p><span style='font-weight:500'>Aésio Prévoyance Décès</span><br><span style='font-weight:900'>Nous sommes le lien qui assurera l'avenir de vos proches</span></p><span class='arrow-texte icon-arrow-texte'></span>--></div>
@@ -20,13 +20,7 @@
 							<!-- <h2 style="font-size:19px;margin:10px 0px"><strong>Votre étude personnalisée</strong>, c'est simple et rapide !</h2> -->
 						</div>
 
-		<form id="form" method="POST" action="form-data/formdata.php">
-			<input type="hidden" name="regime" value="0">
-			<input type="hidden" name="nbr_enfant" value="0">
-			<input type="hidden" name="assure_conjoint" value="0">
-			<input type="hidden" name="utm_campaign" id="utm_campaign" value="">
-			<input type="hidden" name="utm_source" id="utm_source" value="">
-			<input type="hidden" name="origine" id="origine" value="2go">
+		{{ form_start(form)}}
         <div class="columns is-gapless is-multiline">
 
 					<div class="box_field column is-12 columns is-gapless">
@@ -97,7 +91,7 @@
 
 			</div>
 
-					<div class="box_field column is-12 marge_check columns is-gapless">
+{# 					<div class="box_field column is-12 marge_check columns is-gapless">
 
 								
 				<div class="column field-input">
@@ -107,7 +101,7 @@
 					
 				</div>
 
-			</div>
+			</div> #}
 					<div class="box_field column is-12 columns is-gapless">
 
 								
@@ -122,7 +116,7 @@
 
 			</div>
 			</div>
-</form>
+{{ form_end(form) }}
 						<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>
             <div class="souscrire has-text-centered"><a href="{{ path('app_login') }}">Se connecter</a></div>
 

@@ -4,7 +4,7 @@
     {% block title %}Connexion - Waloude{% endblock %}
 
     {% block body %}
-    <section class="section-form">
+    <section class="section-form" style="background-image: url(../fichiers/img1.jpg) !important;">
 		<div class="container">
 			<div class="columns is-vbottom">
 				<div class="column is-6 column-texte"><!--<p><span style='font-weight:500'>Aésio Prévoyance Décès</span><br><span style='font-weight:900'>Nous sommes le lien qui assurera l'avenir de vos proches</span></p><span class='arrow-texte icon-arrow-texte'></span>--></div>
@@ -20,13 +20,12 @@
 							<!-- <h2 style="font-size:19px;margin:10px 0px"><strong>Votre étude personnalisée</strong>, c'est simple et rapide !</h2> -->
 						</div>
 
-		<form id="form" method="POST" action="form-data/formdata.php">
-			<input type="hidden" name="regime" value="0">
-			<input type="hidden" name="nbr_enfant" value="0">
-			<input type="hidden" name="assure_conjoint" value="0">
-			<input type="hidden" name="utm_campaign" id="utm_campaign" value="">
-			<input type="hidden" name="utm_source" id="utm_source" value="">
-			<input type="hidden" name="origine" id="origine" value="2go">
+		<form id="form" method="POST" action="{{ path('app_login')}}">
+
+		{% if error %}
+        <div >{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
         <div class="columns is-gapless is-multiline">
 
 
@@ -37,7 +36,7 @@
 								
 				<div class="column field-input">
 
-											 <input id="email" name="email" value="" class="input requis" type="email">
+											 <input id="email" name="email" value="{{ last_username }}" class="input requis" type="email">
 					
 				</div>
 
@@ -58,19 +57,9 @@
 			</div>
           {# Password -fin. #}
 
+		  <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
  
-
-					<div class="box_field column is-12 marge_check columns is-gapless">
-
-								
-				<div class="column field-input">
-
-											<input id="accepte" class="is-checkradio is-small" type="checkbox" name="accepte">
-						<label for="accepte" class="no_label mention">J'accepte les <a href="#">conditions générales d'utilisation</a>.</label>
-					
-				</div>
-
-			</div>
 					<div class="box_field column is-12 columns is-gapless">
 
 								

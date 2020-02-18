@@ -7,12 +7,13 @@ use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\DependencyInjection\ExpressionLanguageProvider;
+
 
 /**
  * @Route("/")
@@ -23,24 +24,25 @@ class SecurityController extends AbstractController
     /**
      * @Route("/inscription", name="user_registration", methods={"GET","POST"})
      */
-    public function registration(Request $request, UserPasswordEncoderInterface $encoder): Response
+    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder): Response
     {
         $user = new User();
+
         $form = $this->createForm(UserType::class, $user);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             
-            $encoded = $encoder->encodePassword($user, $user->getPassword());
+            $manager = $this->getDoctrine()->getManager();
+            
+            $hash = $encoder->encodePassword($user, $user->getPassword());
 
-            //$encodedC = $encoder->encodePassword($user, $user->getConfirm_Password());
+            $user->setPassword($hash);
 
-            $user->setPassword($encoded);
-            //$user->setPassword($encodedC);
 
-            $entityManager->persist($user);
-            $entityManager->flush();
+            $manager->persist($user);
+            $manager->flush();
 
             return $this->redirectToRoute('app_login');
         }
