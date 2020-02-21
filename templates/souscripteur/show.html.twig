@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Souscripteur{% endblock %}
+
+{% block body %}
+    <h1>Souscripteur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ souscripteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Civilite</th>
+                <td>{{ souscripteur.civilite }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ souscripteur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ souscripteur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Nom_jeune_fille</th>
+                <td>{{ souscripteur.nomJeuneFille }}</td>
+            </tr>
+            <tr>
+                <th>Date_naissance</th>
+                <td>{{ souscripteur.dateNaissance ? souscripteur.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Pays_naissance</th>
+                <td>{{ souscripteur.paysNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Ville_naissance</th>
+                <td>{{ souscripteur.villeNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Pays_residence</th>
+                <td>{{ souscripteur.paysResidence }}</td>
+            </tr>
+            <tr>
+                <th>Ville_residence</th>
+                <td>{{ souscripteur.villeResidence }}</td>
+            </tr>
+            <tr>
+                <th>Profession</th>
+                <td>{{ souscripteur.profession }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ souscripteur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Code_postal</th>
+                <td>{{ souscripteur.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ souscripteur.ville }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ souscripteur.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Tel_domicile</th>
+                <td>{{ souscripteur.telDomicile }}</td>
+            </tr>
+            <tr>
+                <th>Situation_familiale</th>
+                <td>{{ souscripteur.situationFamiliale }}</td>
+            </tr>
+            <tr>
+                <th>Nombre_enfants</th>
+                <td>{{ souscripteur.nombreEnfants }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('souscripteur_index') }}">back to list</a>
+
+    <a href="{{ path('souscripteur_edit', {'id': souscripteur.id}) }}">edit</a>
+
+    {{ include('souscripteur/_delete_form.html.twig') }}
+{% endblock %}

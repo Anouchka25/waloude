@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conjoint{% endblock %}
+
+{% block body %}
+    <h1>Conjoint</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ conjoint.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ conjoint.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ conjoint.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Date_naissance</th>
+                <td>{{ conjoint.dateNaissance ? conjoint.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Pays_naissance</th>
+                <td>{{ conjoint.paysNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Ville_naissance</th>
+                <td>{{ conjoint.villeNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Profession</th>
+                <td>{{ conjoint.profession }}</td>
+            </tr>
+            <tr>
+                <th>Meme_adresse</th>
+                <td>{{ conjoint.memeAdresse }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ conjoint.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Code_postal</th>
+                <td>{{ conjoint.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ conjoint.ville }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ conjoint.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Tel_domicile</th>
+                <td>{{ conjoint.telDomicile }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ conjoint.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('conjoint_index') }}">back to list</a>
+
+    <a href="{{ path('conjoint_edit', {'id': conjoint.id}) }}">edit</a>
+
+    {{ include('conjoint/_delete_form.html.twig') }}
+{% endblock %}

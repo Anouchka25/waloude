@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Souscripteur index{% endblock %}
+
+{% block body %}
+    <h1>Souscripteur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Civilite</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Nom_jeune_fille</th>
+                <th>Date_naissance</th>
+                <th>Pays_naissance</th>
+                <th>Ville_naissance</th>
+                <th>Pays_residence</th>
+                <th>Ville_residence</th>
+                <th>Profession</th>
+                <th>Adresse</th>
+                <th>Code_postal</th>
+                <th>Ville</th>
+                <th>Telephone</th>
+                <th>Tel_domicile</th>
+                <th>Situation_familiale</th>
+                <th>Nombre_enfants</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for souscripteur in souscripteurs %}
+            <tr>
+                <td>{{ souscripteur.id }}</td>
+                <td>{{ souscripteur.civilite }}</td>
+                <td>{{ souscripteur.nom }}</td>
+                <td>{{ souscripteur.prenom }}</td>
+                <td>{{ souscripteur.nomJeuneFille }}</td>
+                <td>{{ souscripteur.dateNaissance ? souscripteur.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ souscripteur.paysNaissance }}</td>
+                <td>{{ souscripteur.villeNaissance }}</td>
+                <td>{{ souscripteur.paysResidence }}</td>
+                <td>{{ souscripteur.villeResidence }}</td>
+                <td>{{ souscripteur.profession }}</td>
+                <td>{{ souscripteur.adresse }}</td>
+                <td>{{ souscripteur.codePostal }}</td>
+                <td>{{ souscripteur.ville }}</td>
+                <td>{{ souscripteur.telephone }}</td>
+                <td>{{ souscripteur.telDomicile }}</td>
+                <td>{{ souscripteur.situationFamiliale }}</td>
+                <td>{{ souscripteur.nombreEnfants }}</td>
+                <td>
+                    <a href="{{ path('souscripteur_show', {'id': souscripteur.id}) }}">show</a>
+                    <a href="{{ path('souscripteur_edit', {'id': souscripteur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('souscripteur_new') }}">Create new</a>
+{% endblock %}

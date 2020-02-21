@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conjoint index{% endblock %}
+
+{% block body %}
+    <h1>Conjoint index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date_naissance</th>
+                <th>Pays_naissance</th>
+                <th>Ville_naissance</th>
+                <th>Profession</th>
+                <th>Meme_adresse</th>
+                <th>Adresse</th>
+                <th>Code_postal</th>
+                <th>Ville</th>
+                <th>Telephone</th>
+                <th>Tel_domicile</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conjoint in conjoints %}
+            <tr>
+                <td>{{ conjoint.id }}</td>
+                <td>{{ conjoint.nom }}</td>
+                <td>{{ conjoint.prenom }}</td>
+                <td>{{ conjoint.dateNaissance ? conjoint.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ conjoint.paysNaissance }}</td>
+                <td>{{ conjoint.villeNaissance }}</td>
+                <td>{{ conjoint.profession }}</td>
+                <td>{{ conjoint.memeAdresse }}</td>
+                <td>{{ conjoint.adresse }}</td>
+                <td>{{ conjoint.codePostal }}</td>
+                <td>{{ conjoint.ville }}</td>
+                <td>{{ conjoint.telephone }}</td>
+                <td>{{ conjoint.telDomicile }}</td>
+                <td>{{ conjoint.email }}</td>
+                <td>
+                    <a href="{{ path('conjoint_show', {'id': conjoint.id}) }}">show</a>
+                    <a href="{{ path('conjoint_edit', {'id': conjoint.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('conjoint_new') }}">Create new</a>
+{% endblock %}
