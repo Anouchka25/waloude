@@ -46,7 +46,20 @@ class SouscripteurType extends AbstractType
                     'expanded' => 'true',
                 ],
             ])
-            ->add('nombre_enfants')
+            ->add('nombre_enfants', ChoiceType::class, [
+                'choices'  => [
+                    '0' => '0',
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+                    '6' => '6',
+                    '8' => '8',
+                    '9' => '9',
+                    '10' => '10',
+                ],
+            ])
             ->add('conjoint')
         ;
     }
