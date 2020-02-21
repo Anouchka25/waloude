@@ -6,13 +6,20 @@ use App\Entity\Souscripteur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class SouscripteurType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('civilite')
+            ->add('civilite', ChoiceType::class, [
+                'choices'  => [
+                    'Madame' => 'madame',
+                    'Mademoiselle' => 'mademoiselle',
+                    'Monsieur' => 'monsieur',
+                ],
+            ])
             ->add('nom')
             ->add('prenom')
             ->add('nom_jeune_fille')
@@ -27,7 +34,18 @@ class SouscripteurType extends AbstractType
             ->add('ville')
             ->add('telephone')
             ->add('tel_domicile')
-            ->add('situation_familiale')
+            ->add('situation_familiale', ChoiceType::class, [
+                'choices'  => [
+                    'Marié' => 'marie',
+                    'Pacsé(e)' => 'pasce',
+                    'Concubin(e)' => 'concubin',
+                    'Célibataire' => 'celibataire',
+                    'Divorcé(e)' => 'divorce',
+                    'Veuf(ve)' => 'veuf',
+                    'multiple' => 'false',
+                    'expanded' => 'true',
+                ],
+            ])
             ->add('nombre_enfants')
             ->add('conjoint')
         ;

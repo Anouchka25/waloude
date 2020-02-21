@@ -5,7 +5,12 @@
 {% block body %}
     <h1>Create new Souscripteur</h1>
 
-    {{ include('souscripteur/_form.html.twig') }}
+   {#  {{ include('souscripteur/_form.html.twig') }} #}
+
+   {{ form_start(form) }}
+    {{ form_widget(form.nom) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
 
     <a href="{{ path('souscripteur_index') }}">back to list</a>
 {% endblock %}
