@@ -56,6 +56,14 @@ class PagesController extends AbstractController
         return $this->render('pages/politique.html.twig');
     }
 
+        /**
+     * @Route("/waloude", name="waloude", methods={"GET"})
+     */
+    public function waloude(): Response
+    {
+        return $this->render('pages/waloude.html.twig');
+    }
+
     /**
      * @Route("/{id}/edit", name="pages_edit", methods={"GET","POST"})
      */

@@ -153,23 +153,45 @@ $(function() {
 
 	<header>
 		<div class="container">
-			<button><a href="#">Espace personnel</a></button>
+    <div class="columns">
+    		<div class="column is-four-fifths">
+			<a href="{{ path('accueil')}}"><img class="logo-eovi" src="{{ asset('./fichiers/logo.png') }}" width="300px"></a>
 		</div>
-		<div class="container">
-			<img class="logo-eovi" src="./fichiers/logo.png" width="300px">
+    <div class="column">
+    {% if not app.user %}
+			<button><a href="{{ path('app_login')}}">Espace personnel</a></button>
+      {% else %}
+      <button style="background-color: #00d1b2; border: #00d1b2 solid 2px;"><a href="{{ path('moncompte')}}">Espace personnel</a><br><span style="color:white">Vous êtes connecté(e)</span></button>
+      <br><a href="{{ path('app_logout')}}" style="color:#00d1b2">Se déconnecter</a>
+      {% endif %}
 		</div>
-		<nav class="container">
-			<ul>
-				<li><a href="#">Accueil</a></li>
-				<li><a href="#">Waloude</a></li>
-				<li><a href="#">Prévoyance</a></li>
-				<li><a href="#">FAQ</a></li>
-				<li><a href="#">Contactez-nous</a></li>
-			</ul>
-		</nav>
+
+    </div>
+		<nav class="navbar is-center" role="navigation" aria-label="main navigation">
+      <div class="navbar-menu is-active">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+      <div class="navbar-start">
+      <a class="navbar-item" href="#">Accueil</a></a>
+				<a class="navbar-item" href="{{ path('waloude')}}">Waloude</a></a>
+				<a class="navbar-item" href="#">Prévoyance</a></a>
+      </div>
+      <div class="navbar-end">  
+				<a class="navbar-item" href="{{ path('faq_index')}}">FAQ</a></li>
+				<a class="navbar-item" href="#">Contactez-nous</a></a>
+      </div>
+		</div>
+    </nav>
 		<div class="container">
-		<h2>Avec Waloude ,mettez à l’abri ceux que vous aimez des conséquences financières d’un décès</h2>
+    <div class="columns is-mobile">
+      <div class="column is-11 is-offset-1">
+		<h2 class="texte_defile">Avec Waloude ,mettez à l’abri ceux que vous aimez des conséquences financières d’un décès</h2>
 	</div>
+  </div>
+  </div>
 	</header>
 
        {% block body %}

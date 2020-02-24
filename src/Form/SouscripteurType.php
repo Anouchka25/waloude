@@ -60,6 +60,7 @@ class SouscripteurType extends AbstractType
                     '10' => '10',
                 ],
             ])
+            ->add('enfants')
             ->add('conjoint')
         ;
     }

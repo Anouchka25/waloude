@@ -59,6 +59,16 @@ class SouscripteurController extends AbstractController
     }
 
     /**
+     * @Route("/moncompte", name="moncompte", methods={"GET"})
+     */
+    public function moncompte(Souscripteur $souscripteur): Response
+    {
+        return $this->render('souscripteur/moncompte.html.twig', [
+            'souscripteur' => $souscripteur,
+        ]);
+    }
+
+    /**
      * @Route("/{id}/edit", name="souscripteur_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Souscripteur $souscripteur): Response

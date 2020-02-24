@@ -59,7 +59,17 @@
 
 		  <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
- 
+ 							<div class="box_field column is-12 marge_check columns is-gapless">
+
+								
+				<div class="column field-input">
+
+											<input id="remember_me" class="is-checkradio is-small" type="checkbox" name="_remember_me">
+						<label for="remember_me" class="no_label mention">Se souvenir de moi</label>
+					
+				</div>
+
+			</div>
 					<div class="box_field column is-12 columns is-gapless">
 
 								
@@ -73,6 +83,8 @@
 				</div>
 
 			</div>
+
+
 			</div>
 </form>
 						<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>

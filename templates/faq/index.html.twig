@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block body %}
+  <div class="container">
+     <div class="columns">
+
+     <div class="column">
+
+    <h1 class="title">FAQ</h1><br>
+
+        {% for faq in faqs %}
+            <h2 class="subtitle" style="font-weight:bold;">{{ faq.id }}- {{ faq.titre }}</h2>
+                <p>{{ faq.description }}</p><br><br>
+        {% else %}
+no records found</td>
+        {% endfor %}
+
+        </div></div></div>
+{% endblock %}
