@@ -3,14 +3,42 @@
 {% block title %}New Souscripteur{% endblock %}
 
 {% block body %}
-    <h1>Create new Souscripteur</h1>
+  
 
-   {#  {{ include('souscripteur/_form.html.twig') }} #}
+   {#  {{ include('souscripteur/_form.html.twig') }} 
 
    {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 
-    <a href="{{ path('souscripteur_index') }}">back to list</a>
+    <a href="{{ path('souscripteur_index') }}">back to list</a>#}
+
+{# ---------------------- #}
+<section class="is-11 is-offset-1">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-12">
+
+					<div class="form_body">
+						<div class="titre_form">
+							<h1 style="font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">Remplir votre contrat</h1>
+							<!-- <h2 style="font-size:19px;margin:10px 0px"><strong>Votre étude personnalisée</strong>, c'est simple et rapide !</h2> -->
+						</div>
+
+		{{ form_start(form)}}
+
+      {# Génération de l'input. #}
+      {{ form_widget(form) }}
+
+      <button class="btn">{{ button_label|default('Save') }}</button>
+				
+					
+{{ form_end(form) }}
+						<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock %}
