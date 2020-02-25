@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class SouscripteurType extends AbstractType
 {
@@ -20,7 +21,7 @@ class SouscripteurType extends AbstractType
                     'Monsieur' => 'monsieur',
                 ],
             ])
-            ->add('nom')
+            ->add('nom', TextType::class)
             ->add('prenom')
             ->add('nom_jeune_fille')
             ->add('date_naissance')
@@ -42,8 +43,6 @@ class SouscripteurType extends AbstractType
                     'Célibataire' => 'celibataire',
                     'Divorcé(e)' => 'divorce',
                     'Veuf(ve)' => 'veuf',
-                    'multiple' => 'false',
-                    'expanded' => 'true',
                 ],
             ])
             ->add('nombre_enfants', ChoiceType::class, [
