@@ -119,6 +119,11 @@ class Souscripteur
         $this->enfants = new ArrayCollection();
     }
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
     public function getCivilite(): ?string
     {
         return $this->civilite;
