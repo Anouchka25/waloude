@@ -3,71 +3,14 @@
 {% block title %}New Souscripteur{% endblock %}
 
 {% block body %}
-  
 
-{# ---------------------- #}
-<section class="section-form">
-		<div class="container">
-			<div class="columns is-vbottom">
-				<div class="column is-12">
 
-					<div class="form_body">
-						<div class="titre_form">
-							<h1 style="font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">Remplir votre contrat</h1>
-							<!-- <h2 style="font-size:19px;margin:10px 0px"><strong>Votre étude personnalisée</strong>, c'est simple et rapide !</h2> -->
-						</div>
+		{{ form_start(form)}}
 
-		{# {{ form_start(form)}} #}
-        <div class="columns is-gapless is-multiline">
-
-					<div class="box_field column is-12 columns is-gapless">
-
-									<div class="column field-label is-narrow"><label class="label">Nom *</label></div>
-								
-				<div class="column field-input">
-
-      {# Génération de l'input. #}
-      {{ form_widget(form.nom) }}
+      {{ form_widget(form) }}
 				
+{{ form_end(form) }}
 					
-				</div>
-
-			</div>
-
-            					<div class="box_field column is-12 columns is-gapless">
-
-								
-				<div class="column field-input">
-
-											<div class="column has-text-centered container_bouton">
-							<button class="button " style="background:#5271ff;" type="submit"><span class="text">Envoyez le contrat</span><span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
-							</button>
-						</div>
-					
-				</div>
-
-			</div>
-
-     
-			
-			</div>
-{# {{ form_end(form) }} #}
-						<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 {% endblock %}
 
 
-
-
-In fact:
-
-if : 'number of enfants' ==  0
-
-Then : We don't add child fields
-
-Else : 'number of enfants' > 0
-Then : 

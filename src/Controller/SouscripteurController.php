@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Souscripteur;
+use App\Entity\Enfant;
 use App\Form\SouscripteurType;
 use App\Repository\SouscripteurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,6 +32,10 @@ class SouscripteurController extends AbstractController
     public function new(Request $request): Response
     {
         $souscripteur = new Souscripteur();
+
+        $enfant = new Enfant();
+        $souscripteur->addEnfant($enfant);
+
         $form = $this->createForm(SouscripteurType::class, $souscripteur);
         $form->handleRequest($request);
 

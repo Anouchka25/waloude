@@ -3,11 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Souscripteur;
+use App\Entity\Enfant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class SouscripteurType extends AbstractType
 {
@@ -59,7 +62,9 @@ class SouscripteurType extends AbstractType
                     '10' => '10',
                 ],
             ])
-            ->add('enfants')
+            ->add('enfants', CollectionType::class, [
+                'entry_type' => Enfant::class,
+                ])
             ->add('conjoint')
         ;
     }
