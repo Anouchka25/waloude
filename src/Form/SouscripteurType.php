@@ -63,7 +63,7 @@ class SouscripteurType extends AbstractType
                 ],
             ])
             ->add('enfants', CollectionType::class, [
-                'entry_type' => Enfant::class,
+                'entry_type' => EnfantType::class,
                 ])
             ->add('conjoint')
         ;
