@@ -25,7 +25,7 @@ class ConjointType extends AbstractType
             ->add('telephone')
             ->add('tel_domicile')
             ->add('email')
-            ->add('souscripteur')
+            //->add('souscripteur')
         ;
     }
 

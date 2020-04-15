@@ -6,6 +6,9 @@ use App\Entity\Team;
 use App\Form\TeamType;
 use App\Repository\TeamRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Service\FileUploader;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TeamController extends AbstractController
 {
     /**
-     * @Route("/", name="team_index", methods={"GET"})
+     * @Route("/", name="team", methods={"GET"})
      */
     public function index(TeamRepository $teamRepository): Response
     {
@@ -43,13 +46,23 @@ class TeamController extends AbstractController
     /**
      * @Route("/new", name="team_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUploader $fileUploader): Response
     {
         $team = new Team();
         $form = $this->createForm(TeamType::class, $team);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $photoFile = $form['photo']->getData();
+
+            if ($photoFile instanceof UploadedFile) {
+                $photoName = $fileUploader->upload($photoFile);
+
+                $team->setPhoto($photoName);
+            }
+        
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($team);
             $entityManager->flush();

@@ -1,41 +1,86 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Team index{% endblock %}
+{% block title %}Contactez-nous{% endblock %}
 
 {% block body %}
-    <h1>Team index</h1>
+    <h1 style="text-align:center; font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">Contactez-nous</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Pays</th>
-                <th>Region</th>
-                <th>Ville</th>
-                <th>Code_postal</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for team in teams %}
-            <tr>
-                <td>{{ team.id }}</td>
-                <td>{{ team.pays }}</td>
-                <td>{{ team.region }}</td>
-                <td>{{ team.ville }}</td>
-                <td>{{ team.codePostal }}</td>
-                <td>
-                    <a href="{{ path('team_show', {'id': team.id}) }}">show</a>
-                    <a href="{{ path('team_edit', {'id': team.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
+<section >
+  <div class="container">
+    <div class="columns">
+       {# Debut du bloc #}
+       {% for team in teams %}
+      <div class="column">
+        <div class="box">
+          <article class="media">
+              <div class="media-left">
+                <figure class="image is-128x128">
+                  <img src="{{ asset('uploads/team/' ~ team.photo) }}" alt="{{ team.nom }} {{ team.prenom }}" title="{{ team.nom }} {{ team.prenom }}" >
+                </figure>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>{{ team.nom }} {{ team.prenom }}</strong> 
+                    <br>
+                      Téléphone: <a href="tel:{{ team.telephone }}"> {{ team.telephone }} </a><br>
+                      Email: <a href="mailto:{{ team.email }}"> {{ team.email }} </a> <br>
+                      Pays: {{ team.pays }}<br>
+                      Région: {{ team.region }}<br>
+                      Ville: {{ team.ville }}<br>
+                      Code postal: {{ team.codePostal }}   <br>  
+                  </p>
+                </div>
+              </div>
+          </article>
+        </div>
+      </div>
+      {% else %}
+           <p> no records found</p>
         {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('team_new') }}">Create new</a>
+        
+        {# Fin du bloc #}
+       </div>
+       </div>    
+
+</section>
+
+    <section style="margin-top:20px; margin-bottom:20px">
+    <div class="container">
+       <div class="columns">
+       <div class="column box is-half is-offset-one-quarter">
+
+       <h1 class="title">Formulaire de contact </h1>
+       
+      <form id="form" method="POST" action="form-data/formdata.php">
+
+        <label class="label">Nom et prénom</label>
+        <div class="control">
+        <input  name="nom_prenom" value="" class="input is-medium requis" type="text">
+        </dv>
+        
+
+        <label class="label">Email</label>
+        <div class="control">
+        <input name="email" value="" class="input is-medium requis" type="email">
+        </dv>
+        
+
+        <label class="label">Message</label>
+        <div class="control">
+        <textarea class="textarea" rows="10"> </textarea>
+        </div>
+        
+        <div class="control">
+							<button type="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">Envoyez votre Message</button>
+						</div>
+      </form>
+      </div>
+      </div>
+      </div>
+    </section>
+
+    
+    
 {% endblock %}

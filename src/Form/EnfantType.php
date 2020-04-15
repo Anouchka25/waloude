@@ -24,7 +24,7 @@ class EnfantType extends AbstractType
                     'Enfant du conjoint' => 'enfant_conjoint',
                 ],
             ])
-            ->add('souscripteur')
+            //->add('souscripteur')
         ;
     }
 

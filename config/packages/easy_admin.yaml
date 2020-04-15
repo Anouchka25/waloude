@@ -13,3 +13,10 @@ easy_admin:
         - App\Entity\Faq
         - App\Entity\Team
         - App\Entity\Pages
+
+    list:
+      actions: 
+        - { name: 'show', icon: 'eye', label: false, title: 'Voir' }
+        - { name: 'edit', icon: 'pencil', label: false, title: 'Modifier' }
+        - { name: 'delete', icon: 'trash', label: false, title: 'Supprimer' }
+

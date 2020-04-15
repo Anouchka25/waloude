@@ -1,4 +1,108 @@
-{{ form_start(form) }}
+{# {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
+
+#}
+
+ {% import "modele_enfant.html.twig"  as aliasModeleEnfant %}
+
+<script type="text/javascript">
+function addEnfantForm($collectionHolder, $newLinkLi) {
+    // Get the data-prototype explained earlier
+    var prototype = $collectionHolder.data('prototype');
+
+    // get the new index
+    var index = $collectionHolder.data('index');
+
+    var newForm = prototype;
+    // You need this only if you didn't set 'label' => false in your tags field in TaskType
+    // Replace '__name__label__' in the prototype's HTML to
+    // instead be a number based on how many items we have
+    // newForm = newForm.replace(/__name__label__/g, index);
+
+    // Replace '__name__' in the prototype's HTML to
+    // instead be a number based on how many items we have
+    newForm = newForm.replace(/__name__/g, index);
+
+    // increase the index with one for the next item
+    $collectionHolder.data('index', index + 1);
+
+    // Display the form in the page in an li, before the "Add a tag" link li
+    //var $newFormLi = $('.tags').append(newForm);
+    //$newLinkLi.before($newFormLi);
+
+    //addTagFormDeleteLink($newFormLi);
+
+    $collectionHolder.append(newForm);
+}
+
+/*function addTagFormDeleteLink($tagFormLi) {
+    var $removeFormButton = $('<button type="button">Delete this tag</button>');
+    $tagFormLi.append($removeFormButton);
+
+    $removeFormButton.on('click', function(e) {
+        // remove the li for the tag form
+        $tagFormLi.remove();
+    });
+}*/
+
+
+$(document).ready(function() {
+    // Get the ul that holds the collection of tags
+    $collectionHolder = $('div.tags');
+
+    // add a delete link to all of the existing tag form li elements
+    /*$collectionHolder.find('li').each(function() {
+        addTagFormDeleteLink($(this));
+    });*/
+    $("select[id$='nombre_enfants']").on("change", function(){
+        //alert("test");
+        let nombre_enfants = $(this).val();
+        console.log(nombre_enfants)
+        for(i=0;i<=nombre_enfants; i++){
+            addEnfantForm($collectionHolder);
+        }
+    });
+
+    // ... the rest of the block from above
+});
+
+    $collectionHolder = jQuery('div.tags');
+    jQuery(document).on("change", "select[id$='nombre_enfants']", function(){
+        //alert("test");
+        let nombre_enfants = $(this).val();
+        console.log(nombre_enfants)
+        for(i=0;i<=nombre_enfants; i++){
+            addEnfantForm($collectionHolder);
+        }
+    });
+
+
+window.onload = function() {
+    if (window.jQuery) {  
+        // jQuery is loaded  
+        alert("Yeah!");
+    } else {
+        // jQuery is not loaded
+        alert("Doesn't Work");
+    }
+}
+
+
+</script>
+
+{{ form_start(form) }}
+    {# render the task's only field: description #}
+    {{ form_widget(form) }}
+
+    <h3>Enfants</h3>
+    <div class="tags" data-prototype="{{ aliasModeleEnfant.enfantCollectionElt(form.enfant.vars.prototype)|e('html_attr') }}">
+        {# iterate over each existing tag and render its only field: name #}
+        {% for enfant in form.enfant %}
+            <div>{{ aliasModeleEnfant.enfantCollectionElt(enfant) }}</div>          
+        {% endfor %}
+    </div>
+{{ form_end(form) }}
+
+

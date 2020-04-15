@@ -33,6 +33,10 @@ class SouscripteurController extends AbstractController
     {
         $souscripteur = new Souscripteur();
 
+        $ref = strtoupper (uniqid()); //uniqid — Génère un identifiant unique 
+                                     //strtoupper — Renvoie une chaîne en majuscules
+        $souscripteur->setReference($ref);
+
         $enfant = new Enfant();
         $souscripteur->addEnfant($enfant);
 
@@ -66,11 +70,9 @@ class SouscripteurController extends AbstractController
     /**
      * @Route("/moncompte", name="moncompte", methods={"GET"})
      */
-    public function moncompte(Souscripteur $souscripteur): Response
+    public function moncompte()
     {
-        return $this->render('souscripteur/moncompte.html.twig', [
-            'souscripteur' => $souscripteur,
-        ]);
+        return $this->render('souscripteur/moncompte.html.twig');
     }
 
     /**

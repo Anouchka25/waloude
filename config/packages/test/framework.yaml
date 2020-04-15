@@ -1,4 +1,5 @@
 framework:
+    error_controller: App\Controller\ErrorController::show
     test: true
     session:
         storage_id: session.storage.mock_file

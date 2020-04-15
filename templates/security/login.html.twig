@@ -4,7 +4,7 @@
     {% block title %}Connexion - Waloude{% endblock %}
 
     {% block body %}
-    <section class="section-form" style="background-image: url(../fichiers/img1.jpg) !important;">
+    <section class="section-form" style="background-image: url(../fichiers/img2.jpg) !important;">
 		<div class="container">
 			<div class="columns is-vbottom">
 				<div class="column is-6 column-texte"><!--<p><span style='font-weight:500'>Aésio Prévoyance Décès</span><br><span style='font-weight:900'>Nous sommes le lien qui assurera l'avenir de vos proches</span></p><span class='arrow-texte icon-arrow-texte'></span>--></div>
@@ -88,6 +88,10 @@
 			</div>
 </form>
 						<div class="field champ_obligatoire has-text-centered">* Champs obligatoires</div>
+
+						<div class=" has-text-centered">
+						<a  href="{{ path('app_forgotten_password') }}">Mot de passe oublié</a>
+						</div>
 						<div class="souscrire has-text-centered"><a href="{{ path('user_registration') }}">Inscription</a></div>
 
 					</div>

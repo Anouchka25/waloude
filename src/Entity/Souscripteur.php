@@ -114,6 +114,41 @@ class Souscripteur
      */
     private $conjoint;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $cartRecto1;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $cartVerso1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cartRecto2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cartVerso2;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ompoMenage;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $autreDoc;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $reference;
+
     public function __construct()
     {
         $this->enfants = new ArrayCollection();
@@ -370,6 +405,92 @@ class Souscripteur
 
         return $this;
     }
+
+    public function getCartRecto1(): ?string
+    {
+        return $this->cartRecto1;
+    }
+
+    public function setCartRecto1(string $cartRecto1): self
+    {
+        $this->cartRecto1 = $cartRecto1;
+
+        return $this;
+    }
+
+    public function getCartVerso1(): ?string
+    {
+        return $this->cartVerso1;
+    }
+
+    public function setCartVerso1(string $cartVerso1): self
+    {
+        $this->cartVerso1 = $cartVerso1;
+
+        return $this;
+    }
+
+    public function getCartRecto2(): ?string
+    {
+        return $this->cartRecto2;
+    }
+
+    public function setCartRecto2(?string $cartRecto2): self
+    {
+        $this->cartRecto2 = $cartRecto2;
+
+        return $this;
+    }
+
+    public function getCartVerso2(): ?string
+    {
+        return $this->cartVerso2;
+    }
+
+    public function setCartVerso2(?string $cartVerso2): self
+    {
+        $this->cartVerso2 = $cartVerso2;
+
+        return $this;
+    }
+
+    public function getCompoMenage(): ?string
+    {
+        return $this->compoMenage;
+    }
+
+    public function setCompoMenage(string $compoMenage): self
+    {
+        $this->compoMenage = $compoMenage;
+
+        return $this;
+    }
+
+    public function getAutreDoc(): ?string
+    {
+        return $this->autreDoc;
+    }
+
+    public function setAutreDoc(?string $autreDoc): self
+    {
+        $this->autreDoc = $autreDoc;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    
 
     
 }

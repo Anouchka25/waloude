@@ -2,6 +2,9 @@
     "alterphp/easyadmin-extension-bundle": {
         "version": "v2.1.1"
     },
+    "brick/math": {
+        "version": "0.8.14"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -196,6 +199,12 @@
     "psr/log": {
         "version": "1.1.0"
     },
+    "ramsey/collection": {
+        "version": "1.0.1"
+    },
+    "ramsey/uuid": {
+        "version": "4.0.0"
+    },
     "sebastian/code-unit-reverse-lookup": {
         "version": "1.0.1"
     },
@@ -243,6 +252,15 @@
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.3"
+    },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "410b9325a37ef86f1e47262c61738f6202202bca"
+        }
     },
     "symfony/asset": {
         "version": "v4.3.1"

@@ -58,6 +58,11 @@ class User implements UserInterface
      */
     private $roles = [];
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $resetToken;
+
 
     public function getId(): ?int
     {
@@ -130,6 +135,18 @@ class User implements UserInterface
 
         return array_unique($roles);
     }
+
+     public function getResetToken(): ?string
+     {
+         return $this->resetToken;
+     }
+
+     public function setResetToken(?string $resetToken): self
+     {
+         $this->resetToken = $resetToken;
+
+         return $this;
+     }
     
     /*
     public function setRoles(array $roles): self
