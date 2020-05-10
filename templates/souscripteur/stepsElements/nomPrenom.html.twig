@@ -1,0 +1,76 @@
+       <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.nom) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.nom) 
+            }}
+            </div>
+            <small>{{ form_help(form.nom) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.nom) }}
+          </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.prenom) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.prenom) }}
+            </div>
+            <small>{{ form_help(form.prenom) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.prenom) }}
+          </div>
+          </div>
+        </div>
+      </div>
+
+                     
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.nom_jeune_fille) }}</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.nom_jeune_fille) 
+            }}
+            </div>
+            <small>{{ form_help(form.nom_jeune_fille) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.nom_jeune_fille) }}
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.date_naissance) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.date_naissance, {
+           'attr': {
+           'class':  
+            'input', 
+             }
+          }) 
+            }}
+            </div>
+            <small>{{ form_help(form.date_naissance) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.date_naissance) }}
+          </div>
+          </div>
+        </div>
+      </div>

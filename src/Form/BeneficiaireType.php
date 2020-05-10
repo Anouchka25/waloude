@@ -2,21 +2,21 @@
 
 namespace App\Form;
 
-use App\Entity\Enfant;
+use App\Entity\Beneficiaire;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 
-class EnfantType extends AbstractType
+class BeneficiaireType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
+            ->add('nom')
+            ->add('prenom')
             ->add('date_naissance', BirthdayType::class, [
                 'attr' => ['class' => 'input'],
                 'placeholder' => [
@@ -24,21 +24,24 @@ class EnfantType extends AbstractType
                 ],
                 'label' => 'Date de naissance'
             ])
-            /* ->add('lien_affiliation', ChoiceType::class, [
-                'choices'  => [
-                    'Enfant commun' => 'enfant_commun',
-                    'Votre enfant' => 'votre_enfant',
-                    'Enfant du conjoint' => 'enfant_conjoint',
-                ],
-            ]) */
-            //->add('souscripteur')
+            ->add('pays_naissance', CountryType::class, [
+                'attr' => ['class' => 'input'], 
+                'choice_translation_locale' => null,
+                'preferred_choices'=>['FR', 'SN'],
+                'label' => 'Pays de naissance'
+                
+            ])
+            ->add('telephone')
+            ->add('tel_domicile')
+            ->add('email')
+           // ->add('souscripteur')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Enfant::class,
+            'data_class' => Beneficiaire::class,
         ]);
     }
 }

@@ -1,0 +1,35 @@
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.telephone) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.telephone) 
+            }}
+            </div>
+            <small>{{ form_help(form.telephone) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.telephone) }}
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.tel_domicile) }}</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.tel_domicile) 
+            }}
+            </div>
+            <small>{{ form_help(form.tel_domicile) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.tel_domicile) }}
+          </div>
+          </div>
+        </div>
+      </div>

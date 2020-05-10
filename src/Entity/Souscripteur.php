@@ -49,11 +49,11 @@ class Souscripteur
      */
     private $pays_naissance;
 
-    /**
+    /* /**
      * @ORM\Column(type="string", length=255)
-     */
+     
     private $ville_naissance;
-
+ */
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -137,7 +137,7 @@ class Souscripteur
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $ompoMenage;
+    private $compoMenage;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -149,9 +149,24 @@ class Souscripteur
      */
     private $reference;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Beneficiaire", mappedBy="souscripteur")
+     */
+    private $beneficiaires;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nombre_beneficiaires;
+
+
+
+
+
     public function __construct()
     {
         $this->enfants = new ArrayCollection();
+        $this->beneficiaires = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -231,7 +246,7 @@ class Souscripteur
         return $this;
     }
 
-    public function getVilleNaissance(): ?string
+    /* public function getVilleNaissance(): ?string
     {
         return $this->ville_naissance;
     }
@@ -241,7 +256,7 @@ class Souscripteur
         $this->ville_naissance = $ville_naissance;
 
         return $this;
-    }
+    } */
 
     public function getPaysResidence(): ?string
     {
@@ -490,7 +505,48 @@ class Souscripteur
         return $this;
     }
 
-    
+    /**
+     * @return Collection|Beneficiaire[]
+     */
+    public function getBeneficiaires(): Collection
+    {
+        return $this->beneficiaires;
+    }
+
+    public function addBeneficiaire(Beneficiaire $beneficiaire): self
+    {
+        if (!$this->beneficiaires->contains($beneficiaire)) {
+            $this->beneficiaires[] = $beneficiaire;
+            $beneficiaire->setSouscripteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBeneficiaire(Beneficiaire $beneficiaire): self
+    {
+        if ($this->beneficiaires->contains($beneficiaire)) {
+            $this->beneficiaires->removeElement($beneficiaire);
+            // set the owning side to null (unless already changed)
+            if ($beneficiaire->getSouscripteur() === $this) {
+                $beneficiaire->setSouscripteur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getNombreBeneficiaires(): ?string
+    {
+        return $this->nombre_beneficiaires;
+    }
+
+    public function setNombreBeneficiaires(string $nombre_beneficiaires): self
+    {
+        $this->nombre_beneficiaires = $nombre_beneficiaires;
+
+        return $this;
+    }
 
     
 }

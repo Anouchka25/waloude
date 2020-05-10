@@ -33,11 +33,11 @@ class Enfant
 
 
 
-    /**
+    /*
      * @ORM\Column(type="string", length=255)
-     */
+    
     private $lien_affiliation;
-
+    */
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Souscripteur", inversedBy="enfants")
      */
@@ -84,7 +84,7 @@ class Enfant
         return $this;
     }
 
-    public function getLienAffiliation(): ?string
+/*     public function getLienAffiliation(): ?string
     {
         return $this->lien_affiliation;
     }
@@ -94,7 +94,7 @@ class Enfant
         $this->lien_affiliation = $lien_affiliation;
 
         return $this;
-    }
+    } */
 
     public function getSouscripteur(): ?Souscripteur
     {

@@ -8,7 +8,7 @@ header>div{width: 50%;}
 
 .souscrire>a{color: #5271ff ; font-weight: 600;}
 
-.nosformules{ height: 300px; background-color: #b01c87; display: flex; justify-content: center; align-items: center;}
+.nosformules{ height: 300px; background-color: #b01c87; display: flex; justify-content: center; align-items: center; margin-right: 20px;}
 
 .nosformules>p{color: white; text-align: center; }
 
@@ -97,5 +97,9 @@ header button>a:hover{color: white; border-bottom: #b01c87 solid 5px;}
     }
     .navbar-item{font-weight: 900; font-size: x-large;}
   }
+
+
+
+   
   
  

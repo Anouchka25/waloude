@@ -1,0 +1,429 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Souscripteur{% endblock %}
+
+{% block body %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="./fichiers/steps/style.css" /> 
+{% endblock %}
+
+<script>
+//Ajout d'un enfant
+function addEnfants(collectionHolder)
+{
+//let block_colis = $("#block_colis");
+    let prototype = collectionHolder.attr("data-prototype");
+    let index = collectionHolder.data("index");
+
+    let newForm = prototype.replace(/__name__/g, index+1);
+    /*let newColisElt = colisFormElt.replace(/__nb__/g, index+1);
+    newColisElt = newColisElt.replace(/__formContent__/g, newForm);*/
+    collectionHolder.append(newForm);
+    //collectionHolder.find(".onlyNumbers").onlyNumbers();
+    /*collectionHolder.find(".onlyNumbers").numeric({
+        allowMinus   : false,
+    });
+    collectionHolder.find(".btn_colis_remove").off("click");
+    collectionHolder.find(".btn_colis_remove").on("click", function(){
+        removeColisForm($(this));
+    });
+    collectionHolder.data("index", index+1);
+    formTabIndexInit();*/
+}
+
+
+function removeEnfant(elt){
+    //$("#main-content #bt_calculer_montant").click();
+    let formParent = $(elt).closest("form");
+    let collectionHolder = formParent.find("#block_enfants");
+    let index = collectionHolder.data("index");
+    collectionHolder.data("index", index-1);
+    $(elt).closest("tr").remove();
+    //expeditionIntexCalculerMontant(formParent, formParent.attr("type-client"));
+}
+
+// Ajout du conjoint
+function addConjoint(collectionHolder)
+{
+//let block_colis = $("#block_colis");
+    let prototype = collectionHolder.attr("data-prototype");
+    let index = collectionHolder.data("index");
+
+    let newForm = prototype.replace(/__name__/g, index+1);
+
+    collectionHolder.append(newForm);
+}
+
+      function removeConjoint(elt){
+    //$("#main-content #bt_calculer_montant").click();
+    let formParent = $(elt).closest("form");
+    let collectionHolder = formParent.find("#block_conjoint");
+    let index = collectionHolder.data("index");
+    collectionHolder.data("index", index-1);
+    $(elt).closest("tr").remove();
+    //expeditionIntexCalculerMontant(formParent, formParent.attr("type-client"));
+}
+
+      $(document).ready(function(){
+           // alert("test");
+            /*$(document).on("change", "#souscripteur_nombre_enfants", function(){
+                  alert("nombre enfants = "+$(this).val());
+            });*/
+             $("#souscripteur_nombre_enfants").on("change", function(){
+                  //alert("nombre enfants = "+$(this).val());
+                  let nombre_enfants = $(this).val();
+                  let collectionHolder = $("#block_enfants");
+
+                  //Suppression des anciens enfants
+                  collectionHolder.empty();
+                  collectionHolder.data("index", 0);
+
+                  //Ajout des nouveaux enfants
+                  for(i=0;i<nombre_enfants;i++){
+                        addEnfants(collectionHolder);
+                  }
+            });
+
+            $("#souscripteur_situation_familiale").on("change", function(){
+
+                  let conjoint = $(this).val();
+                  console.log(conjoint);
+                  let collectionHolder = $("#block_conjoint");
+
+                  //Suppression des ancienne situation
+                  collectionHolder.empty();
+                  collectionHolder.data("index", 0);
+
+                  //Ajout de conjoint ou pas 
+                  //if(conjoint=="Marié(e)" || conjoint =="Pacsé(e)" || conjoint =="Concubin(e)" ){
+                  if(conjoint=="marie" || conjoint =="pasce" || conjoint =="concubin" ){
+                        addConjoint(collectionHolder);
+                  }
+                  else
+                        console.log("Pas de conjoint");
+            });
+      });
+
+
+//  Debut de form by step
+
+// Fin de form by step
+
+</script>
+
+
+{% import "souscripteur/modele_enfant.html.twig" as formModelEnfant %}
+{% import "souscripteur/modele_conjoint.html.twig" as formModelConjoint %}
+
+
+<h1 style="font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">
+    Souscrire à l'assurance
+</h1>
+
+
+<div class="container">
+{{ form_start(form, {'id':'formSouscripteur'}) }}
+    <div>
+        <h3>Informations personnelles</h3>
+        <section>
+            <label for="civilite">{{ form_label(form.civilite) }}</label>
+            {{ form_widget(form.civilite) }}
+            <small>{{ form_help(form.civilite) }}</small>
+            {{ form_errors(form.civilite) }}
+
+            <p>(*) Champs obligatoire</p>
+        
+       
+          <label class="label">{{ form_label(form.nom) }}</label>
+              {{ form_widget(form.nom) }}
+            <small>{{ form_help(form.nom) }}</small>
+            {{ form_errors(form.nom) }}
+      
+
+       
+          <label class="label">{{ form_label(form.prenom) }}</label>
+              {{ form_widget(form.prenom) }}
+            <small>{{ form_help(form.prenom) }}</small>
+            {{ form_errors(form.prenom) }}
+      
+
+      
+          <label class="label">{{ form_label(form.nom_jeune_fille) }}</label>
+              {{ form_widget(form.nom_jeune_fille) }}
+            <small>{{ form_help(form.nom_jeune_fille) }}</small>
+            {{ form_errors(form.nom_jeune_fille) }}
+
+      
+          <label class="label">{{ form_label(form.date_naissance) }}</label>
+              {{ form_widget(form.date_naissance) }}
+            <small>{{ form_help(form.date_naissance) }}</small>
+            {{ form_errors(form.date_naissance) }}
+
+      
+          <label class="label">{{ form_label(form.pays_naissance) }}</label>
+              {{ form_widget(form.pays_naissance) }}
+            <small>{{ form_help(form.pays_naissance) }}</small>
+            {{ form_errors(form.pays_naissance) }}
+      
+          <label class="label">{{ form_label(form.ville_naissance) }}</label>
+              {{ form_widget(form.ville_naissance) }}
+            <small>{{ form_help(form.ville_naissance) }}</small>
+            {{ form_errors(form.ville_naissance) }}
+      
+          <label class="label">{{ form_label(form.pays_residence) }}</label>
+              {{ form_widget(form.pays_residence) }}
+            <small>{{ form_help(form.pays_residence) }}</small>
+            {{ form_errors(form.pays_residence) }}
+
+      
+          <label class="label">{{ form_label(form.ville_residence) }}</label>
+              {{ form_widget(form.ville_residence) }}
+            <small>{{ form_help(form.ville_residence) }}</small>
+          
+            {{ form_errors(form.ville_residence) }}
+
+      
+          <label class="label">{{ form_label(form.profession) }}</label>
+              {{ form_widget(form.profession) }}
+            <small>{{ form_help(form.profession) }}</small>
+          
+            {{ form_errors(form.profession) }}
+      
+          <label class="label">{{ form_label(form.adresse) }}</label>
+              {{ form_widget(form.adresse) }}
+            <small>{{ form_help(form.adresse) }}</small>
+            {{ form_errors(form.adresse) }}
+      
+          <label class="label">{{ form_label(form.code_postal) }}</label>
+              {{ form_widget(form.code_postal) }}
+            <small>{{ form_help(form.code_postal) }}</small>
+            {{ form_errors(form.code_postal) }}
+
+      
+          <label class="label">{{ form_label(form.ville) }}</label>
+              {{ form_widget(form.ville) }}
+            <small>{{ form_help(form.ville) }}</small>
+            {{ form_errors(form.ville) }}
+
+      
+          <label class="label">{{ form_label(form.telephone) }}</label>
+              {{ form_widget(form.telephone) }}
+            <small>{{ form_help(form.telephone) }}</small>
+            {{ form_errors(form.telephone) }}
+
+      
+          <label class="label">{{ form_label(form.tel_domicile) }}</label>
+              {{ form_widget(form.tel_domicile) }}
+            <small>{{ form_help(form.tel_domicile) }}</small>
+            {{ form_errors(form.tel_domicile) }}
+      
+      </section>
+<h3>Vos enfants</h3>
+      <section>
+          <label class="label">{{ form_label(form.nombre_enfants) }}</label>
+          {{ form_widget(form.nombre_enfants) }}
+            <div id="block_enfants" data-prototype="{{ formModelEnfant.enfantCollectionElt(form.enfants.vars.prototype)|e }}"></div>
+                {% do form.enfants.setRendered %}
+            </div>
+            <small>{{ form_help(form.nombre_enfants) }}</small>
+            {{ form_errors(form.nombre_enfants) }}
+        </section>
+
+<h3>Situation familiale</h3>
+      <section>
+          <label class="label">{{ form_label(form.situation_familiale) }}</label>
+              {{ form_widget(form.situation_familiale, {'attr': {'class':'input'} }) 
+            }}
+
+            <div id="block_conjoint" data-prototype="{{ formModelConjoint.conjointCollectionElt(form.conjoint.vars.prototype)|e }}"></div>
+            {% do form.conjoint.setRendered %}
+            </div>
+
+            <small>{{ form_help(form.situation_familiale) }}</small>
+            {{ form_errors(form.situation_familiale) }}
+      </section>
+
+<h3>Pièces justificatives</h3>
+      <section>
+      <label class="file-label">
+                {{ form_widget(form.cartVerso1, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+                <span class="file-cta">
+              <span class="file-icon">
+               <i class="fas fa-upload"></i>
+              </span>
+           <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+  </label>
+  </div>
+            </div>
+            <small>{{ form_help(form.cartVerso1) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.cartVerso1) }}
+          </div>
+          </div>
+        </div>
+      </div>
+      </div> {# div de la column #}
+
+           </div> {# div de la columns #}
+
+      <div class="columns">
+      <div class="column">
+      <p>Pièce d'identité(verso) de votre conjoint(e)</p>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+            <div class="file is-large">  
+            <label class="file-label">
+                {{ form_widget(form.cartRecto2, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+                <span class="file-cta">
+              <span class="file-icon">
+               <i class="fas fa-upload"></i>
+              </span>
+           <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+  </label>
+  </div>
+            </div>
+            <small>{{ form_help(form.cartRecto2) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.cartRecto2) }}
+          </div>
+          </div>
+        </div>
+      </div>
+      </div> {# div de la column #}
+      
+      <div class="column">
+      <p>Pièce d'identité(verso) de votre conjoint(e)</p>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+            <div class="file is-large">  
+            <label class="file-label">
+                {{ form_widget(form.cartVerso2, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+                <span class="file-cta">
+              <span class="file-icon">
+               <i class="fas fa-upload"></i>
+              </span>
+           <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+  </label>
+  </div>
+            </div>
+            <small>{{ form_help(form.cartVerso2) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.cartVerso2) }}
+          </div>
+          </div>
+        </div>
+      </div>
+      </div> {# div de la column #}
+
+      </div> {# div de la columns #}
+
+         <div class="columns">
+      <div class="column">
+      <p>Composition du ménage *</p>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+            <div class="file is-large">  
+            <label class="file-label">
+                {{ form_widget(form.compoMenage, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+                <span class="file-cta">
+              <span class="file-icon">
+               <i class="fas fa-upload"></i>
+              </span>
+           <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+  </label>
+  </div>
+            </div>
+            <small>{{ form_help(form.compoMenage) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.compoMenage) }}
+          </div>
+          </div>
+        </div>
+      </div>
+      </div> {# div de la column #}
+
+      <div class="column">
+      <p>Autre document- "facultatif"</p>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+            <div class="file is-large">  
+            <label class="file-label">
+                {{ form_widget(form.autreDoc, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+                <span class="file-cta">
+              <span class="file-icon">
+               <i class="fas fa-upload"></i>
+              </span>
+           <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+  </label>
+  </div>
+            </div>
+            <small>{{ form_help(form.autreDoc) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.autreDoc) }}
+    </section>
+
+    </div>
+{{ form_end(form) }}
+</div>
+
+<script src="{{ asset('./fichiers/steps/jquery-2.2.4.min.js') }}"></script>
+<script src="{{ asset('./fichiers/steps/jquery.validate.js') }}"></script>
+<script src="{{ asset('./fichiers/steps/jquery.steps.js') }}"></script>
+<script  src="{{ asset('./fichiers/steps/script.js') }}"></script>
+					
+{% endblock %}
+
+

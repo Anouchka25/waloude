@@ -2,9 +2,6 @@
     "alterphp/easyadmin-extension-bundle": {
         "version": "v2.1.1"
     },
-    "brick/math": {
-        "version": "0.8.14"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -80,18 +77,6 @@
     },
     "doctrine/reflection": {
         "version": "v1.0.0"
-    },
-    "easycorp/easy-log-handler": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "70062abc2cd58794d2a90274502f81b55cd9951b"
-        },
-        "files": [
-            "./config/packages/dev/easy_log_handler.yaml"
-        ]
     },
     "easycorp/easyadmin-bundle": {
         "version": "2.0",
@@ -199,12 +184,6 @@
     "psr/log": {
         "version": "1.1.0"
     },
-    "ramsey/collection": {
-        "version": "1.0.1"
-    },
-    "ramsey/uuid": {
-        "version": "4.0.0"
-    },
     "sebastian/code-unit-reverse-lookup": {
         "version": "1.0.1"
     },
@@ -248,7 +227,7 @@
         ]
     },
     "spipu/html2pdf": {
-        "version": "v5.2.1"
+        "version": "v5.2.2"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.3"
@@ -642,7 +621,7 @@
         "version": "v4.3.1"
     },
     "tecnickcom/tcpdf": {
-        "version": "6.2.26"
+        "version": "6.3.5"
     },
     "twig/extra-bundle": {
         "version": "v3.0.3"

@@ -46,3 +46,6 @@ services:
         tags:
             - { name: doctrine.event_listener, event: prePersist }
             - { name: doctrine.event_listener, event: preUpdate }
+
+    #App\Service\T_Html2Pdf:
+    #    class:T_Html2Pdf

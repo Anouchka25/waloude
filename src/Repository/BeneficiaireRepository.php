@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Beneficiaire;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method Beneficiaire|null find($id, $lockMode = null, $lockVersion = null)
@@ -25,10 +25,10 @@ class BeneficiaireRepository extends ServiceEntityRepository
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
+            ->orderBy('b.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -39,8 +39,8 @@ class BeneficiaireRepository extends ServiceEntityRepository
     /*
     public function findOneBySomeField($value): ?Beneficiaire
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

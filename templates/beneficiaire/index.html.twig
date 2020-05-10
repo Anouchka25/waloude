@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Beneficiaire index{% endblock %}
+
+{% block body %}
+    <h1>Beneficiaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date_naissance</th>
+                <th>Pays_naissance</th>
+                <th>Telephone</th>
+                <th>Tel_domicile</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for beneficiaire in beneficiaires %}
+            <tr>
+                <td>{{ beneficiaire.id }}</td>
+                <td>{{ beneficiaire.nom }}</td>
+                <td>{{ beneficiaire.prenom }}</td>
+                <td>{{ beneficiaire.dateNaissance ? beneficiaire.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ beneficiaire.paysNaissance }}</td>
+                <td>{{ beneficiaire.telephone }}</td>
+                <td>{{ beneficiaire.telDomicile }}</td>
+                <td>{{ beneficiaire.email }}</td>
+                <td>
+                    <a href="{{ path('beneficiaire_show', {'id': beneficiaire.id}) }}">show</a>
+                    <a href="{{ path('beneficiaire_edit', {'id': beneficiaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('beneficiaire_new') }}">Create new</a>
+{% endblock %}

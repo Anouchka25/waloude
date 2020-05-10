@@ -3,30 +3,33 @@
 {% block title %}Mon compte{% endblock %}
 
 {% block body %}
-    <h1>Souscripteur</h1>
-
-    		<div class="container">
-    <div class="columns">
-    		<div class="column is-narrow">
-              <div class="box" style="width: 200px;">
-			    <img class="logo-eovi" src="{{ asset('./fichiers/logo.png') }}">
+<div class="box">
+          <article class="media">
+              <div class="media-left">
+                <figure class="image is-128x128">
+                  <img src="{{ asset('https://bulma.io/images/placeholders/256x256.png') }}" alt="jkkkkkk" title="uyyyyyyyy" >
+                </figure>
               </div>
-            </div>
-		</div>
-
-
-    </div>
-
-    		<div class="column">
-              <div class="box" style="width: 200px;">
-			    <p class="title is-5">THIAM BOURYT</p>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>John Smith</strong> 
+                    <br>
+                      Téléphone: <br>
+                      Email:  <br>
+                      Pays: <br>
+                      Région: <br>
+                      Ville: <br>
+                      Code postal:    <br>  
+                  </p>
+                  <p><a href="#"><a class="button is-primary">Modifier vos informations</a></a></p>
+                </div>
               </div>
-		</div>
+              
+          </article>
+        </div>
 
-
-    </div>
-
-<table class="table">
+       <table class="table box">
   <thead>
     <tr>
       <th><abbr title="Played">Assurés</abbr></th>
@@ -40,6 +43,16 @@
   <tbody>
     <tr>
       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
       </tr>
-  </tbody>
+  </tbody>  
+
+  </table> 
+
+
+    
+
 {% endblock %}

@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\Souscripteur;
 use App\Entity\Enfant;
 use App\Form\EnfantType;
+use App\Entity\Beneficiaire;
+use App\Form\BeneficiaireType;
 use App\Form\ConjointType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -37,30 +39,53 @@ class SouscripteurType extends AbstractType
                 'label' => 'Nom de famille',
                 'attr' => ['class' => 'input'], 
                 ])
-            ->add('prenom')
-            ->add('nom_jeune_fille')
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom',
+                'attr' => ['class' => 'input'], 
+                ])
+            ->add('nom_jeune_fille', TextType::class, [
+                'label' => 'Nom de de jeune fille',
+                'attr' => ['class' => 'input'], 
+                ])
             ->add('date_naissance', BirthdayType::class, [
                 'placeholder' => [
                     'day' => 'Jour', 'month' => 'Mois', 'year' => 'Année',  
-                ]
+                ],
+                'label' => 'Date de naissance'
             ])
             ->add('pays_naissance', CountryType::class, [
                 'attr' => ['class' => 'input'], 
                 'choice_translation_locale' => null,
+                'preferred_choices'=>['FR', 'SN'],
+                'label' => 'Pays de naissance'
                 
             ])
-            ->add('ville_naissance')
+            //->add('ville_naissance')
             ->add('pays_residence', CountryType::class, [
-                'attr' => ['class' => 'input'], 
+                'attr' => ['class' => 'input'],
+                'preferred_choices'=>['FR'], 
+                'label' => 'Pays de résidence'
                 
             ])
-            ->add('ville_residence')
-            ->add('profession')
+            ->add('ville_residence', TextType::class, [
+                'label' => 'Ville de résidence',
+                'attr' => ['class' => 'input'], 
+                ])
+            /* ->add('profession', TextType::class, [
+                'label' => 'Profession',
+                'attr' => ['class' => 'input'], 
+                ]) */
             ->add('adresse')
             ->add('code_postal')
             ->add('ville')
-            ->add('telephone')
-            ->add('tel_domicile')
+            ->add('telephone', TextType::class, [
+                'label' => 'Téléphone',
+                'attr' => ['class' => 'input'], 
+                ])
+            ->add('tel_domicile', TextType::class, [
+                'label' => 'Tél domicile',
+                'attr' => ['class' => 'input'], 
+                ])
             ->add('situation_familiale', ChoiceType::class, [
                 'choices'  => [
                     'Marié' => 'marie',
@@ -70,7 +95,11 @@ class SouscripteurType extends AbstractType
                     'Divorcé(e)' => 'divorce',
                     'Veuf(ve)' => 'veuf',
                 ],
-                'placeholder'=>'-- Chosissez --'
+                'expanded'=>true,
+                'multiple'=>false,
+                //'label' => 'Situation familiale',
+                'attr' => ['class' => 'is-checkradio'],
+                
             ])
             ->add('nombre_enfants', ChoiceType::class, [
                 'choices'  => [
@@ -85,6 +114,7 @@ class SouscripteurType extends AbstractType
                     '9' => '9',
                     '10' => '10',
                 ],
+                'label' => 'Nombre d\'enfants'
             ])
             ->add('enfants', CollectionType::class, [
                 'entry_type' => EnfantType::class,
@@ -99,6 +129,20 @@ class SouscripteurType extends AbstractType
                 'allow_delete'=>true,
                 'by_reference'=>false
             ))
+
+            ->add('nombre_beneficiaires', ChoiceType::class, [
+                'choices'  => [
+                    '1' => '1',
+                    '2' => '2',
+                ],
+                'label' => 'Nb bénéficaires'
+            ])
+            ->add('beneficiaires', CollectionType::class, [
+                'entry_type' => BeneficiaireType::class,
+                'allow_add'=>true,
+                'allow_delete'=>true,
+                'by_reference'=>false
+                ])
 
             ->add('cartRecto1', FileType::class, [
                 'label' => 'Pièce d\'identité recto(PDF, JPG, PNG)',

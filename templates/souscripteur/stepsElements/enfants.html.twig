@@ -1,0 +1,21 @@
+{% import "souscripteur/modele_enfant.html.twig" as formModelEnfant %}
+<div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.nombre_enfants) }}</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.nombre_enfants, {'attr': {'class':'input'}}) 
+            }}
+            </div>
+            <div id="block_enfants" data-prototype="{{ formModelEnfant.enfantCollectionElt(form.enfants.vars.prototype)|e }}"></div>
+                {% do form.enfants.setRendered %}
+            </div>
+
+            <small>{{ form_help(form.nombre_enfants) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.nombre_enfants) }}
+          </div>
+          </div>
+        </div>

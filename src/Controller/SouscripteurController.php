@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Souscripteur;
 use App\Entity\Enfant;
+use App\Entity\Beneficiaire;
 use App\Form\SouscripteurType;
 use App\Repository\SouscripteurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,6 +28,14 @@ class SouscripteurController extends AbstractController
     }
 
     /**
+     * @Route("/moncompte", name="moncompte") //, methods={"GET"}
+     */
+    public function moncompte()
+    {
+        return $this->render('souscripteur/moncompte.html.twig');
+    }
+
+    /**
      * @Route("/new", name="souscripteur_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -39,6 +48,9 @@ class SouscripteurController extends AbstractController
 
         $enfant = new Enfant();
         $souscripteur->addEnfant($enfant);
+
+        $beneficiaire = new Beneficiaire();
+        $souscripteur->addBeneficiaire($beneficiaire);
 
         $form = $this->createForm(SouscripteurType::class, $souscripteur);
         $form->handleRequest($request);
@@ -65,14 +77,6 @@ class SouscripteurController extends AbstractController
         return $this->render('souscripteur/show.html.twig', [
             'souscripteur' => $souscripteur,
         ]);
-    }
-
-    /**
-     * @Route("/moncompte", name="moncompte", methods={"GET"})
-     */
-    public function moncompte()
-    {
-        return $this->render('souscripteur/moncompte.html.twig');
     }
 
     /**
@@ -107,5 +111,20 @@ class SouscripteurController extends AbstractController
         }
 
         return $this->redirectToRoute('souscripteur_index');
+    }
+
+    /**
+   * @Route("souscripteurpdf/{id}", name="souscripteurpdf", methods={"GET"})
+     */
+    public function showPdf(Souscripteur $souscripteur): Response
+    {
+        $template = $this->render('souscripteur/souscripteurPDF.html.twig', [
+            'souscripteur' => $souscripteur,
+        ]);
+
+      $html2pdf = new T_Html2Pdf('P', 'A4', 'fr', true, 'UTF-8', array(10, 15, 10, 15));
+      $html2pdf->create('P', 'A4', 'fr', true, 'UTF-8', array(10, 15, 10, 15));
+
+      return $html2pdf->generatePdf($template, "souscripteur");
     }
 }

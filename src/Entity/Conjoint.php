@@ -36,16 +36,16 @@ class Conjoint
      */
     private $pays_naissance;
 
-    /**
+    /*
      * @ORM\Column(type="string", length=255)
-     */
+     
     private $ville_naissance;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
      */
+    /*
+     * @ORM\Column(type="string", length=255, nullable=true)
+    
     private $profession;
-
+     */
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -76,11 +76,11 @@ class Conjoint
      */
     private $tel_domicile;
 
-    /**
+    /*
      * @ORM\Column(type="string", length=255)
-     */
+    
     private $email;
-
+      */
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Souscripteur", mappedBy="conjoint", cascade={"persist", "remove"})
      */
@@ -139,7 +139,7 @@ class Conjoint
         return $this;
     }
 
-    public function getVilleNaissance(): ?string
+/*     public function getVilleNaissance(): ?string
     {
         return $this->ville_naissance;
     }
@@ -161,7 +161,7 @@ class Conjoint
         $this->profession = $profession;
 
         return $this;
-    }
+    } */
 
     public function getMemeAdresse(): ?string
     {
@@ -235,7 +235,7 @@ class Conjoint
         return $this;
     }
 
-    public function getEmail(): ?string
+   /*  public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -246,7 +246,7 @@ class Conjoint
 
         return $this;
     }
-
+ */
     public function getSouscripteur(): ?Souscripteur
     {
         return $this->souscripteur;

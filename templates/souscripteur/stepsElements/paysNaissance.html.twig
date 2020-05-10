@@ -1,0 +1,35 @@
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.pays_naissance) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.pays_naissance) 
+            }}
+            </div>
+            <small>{{ form_help(form.pays_naissance) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.pays_naissance) }}
+          </div>
+          </div>
+        </div>
+      </div>
+
+   {#    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.ville_naissance) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.ville_naissance) 
+            }}
+            </div>
+            <small>{{ form_help(form.ville_naissance) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.ville_naissance) }}
+          </div>
+          </div>
+        </div>
+      </div> #}
