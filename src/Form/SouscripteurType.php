@@ -88,17 +88,21 @@ class SouscripteurType extends AbstractType
                 ])
             ->add('situation_familiale', ChoiceType::class, [
                 'choices'  => [
-                    'Marié' => 'marie',
+                    'Marié(e)' => 'marie',
                     'Pacsé(e)' => 'pasce',
                     'Concubin(e)' => 'concubin',
                     'Célibataire' => 'celibataire',
                     'Divorcé(e)' => 'divorce',
                     'Veuf(ve)' => 'veuf',
                 ],
+                'choice_attr'=> function($choice, $key, $value) {
+                    // adds a class like attending_yes, attending_no, etc
+                    return ['class' => 'is-checkradio'];
+                },
                 'expanded'=>true,
                 'multiple'=>false,
                 //'label' => 'Situation familiale',
-                'attr' => ['class' => 'is-checkradio'],
+                //'attr' => ['class' => 'is-checkradio'],
                 
             ])
             ->add('nombre_enfants', ChoiceType::class, [

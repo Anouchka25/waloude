@@ -50,7 +50,7 @@ header button>a:hover{color: white; border-bottom: #b01c87 solid 5px;}
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 60px;
-    margin-right: 60px;
+    margin-right: 0px;
   }
 
   .blocactif.active {

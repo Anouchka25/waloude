@@ -39,7 +39,7 @@ class ConjointType extends AbstractType
             ])
             //->add('ville_naissance')
             //->add('profession')
-            ->add('meme_adresse', CheckboxType::class, [
+            /* ->add('meme_adresse', CheckboxType::class, [
                 'label'    => 'Même adresse',
                 //'attr' => ['onclick' => 'afficherAdresse('memeAdresse')']
                  ])
@@ -55,7 +55,7 @@ class ConjointType extends AbstractType
             ->add('ville', TextType::class, [
                 'label' => 'Ville',
                 'attr' => ['class' => 'memeAdresse'], 
-                ])
+                ]) */
             ->add('telephone')
             ->add('tel_domicile')
            // ->add('email')

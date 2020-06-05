@@ -3,6 +3,10 @@
 {% block title %}Souscrire au contrat Waloude{% endblock %}
 
 {% block body %}
+
+<link rel="stylesheet" href="{{ asset('./fichiers/bulma.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('./fichiers/bulma-steps.min.css') }}">
+
 <script>
 //Ajout d'un bénéficiaires
 function addBeneficiaires(collectionHolder)
@@ -110,13 +114,27 @@ function afficherAdresse(id) {
                   }
             });
 
+            $("#souscripteur_nombre_beneficiaires").on("change", function(){
+                  //alert("nombre enfants = "+$(this).val());
+                  let nombre_beneficiaires = $(this).val();
+                  let collectionHolder = $("#block_beneficiaires");
+
+                  //Suppression des anciens enfants
+                  collectionHolder.empty();
+                  collectionHolder.data("index", 0);
+
+                  //Ajout des nouveaux enfants
+                  for(i=0;i<nombre_beneficiaires;i++){
+                        addBeneficiaires(collectionHolder);
+                  }
+            });
+
             $("*input[name='souscripteur[situation_familiale]']").on("change", function(){
 
                   let conjoint = $(this).val();
                   console.log(conjoint);
                   let collectionHolder = $("#block_conjoint");
 
-                  let cotisation=0;
 
                   //Suppression des ancienne situation
                   collectionHolder.empty();
@@ -129,16 +147,11 @@ function afficherAdresse(id) {
                   }
                   else
                         console.log("Pas de conjoint");
-                  
-                  if(conjoint=="marie" || conjoint =="pasce" ){
-                        cotisation = 120
-                  }
-                  else
-                        cotisation = 50
             });
       });
 
 </script>
+
 
 
 
@@ -154,15 +167,15 @@ function afficherAdresse(id) {
 <h1 style="font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">
                         Souscrire à l'assurance
 </h1>
+
 {{ form_start(form, {'id':'formSouscripteur'}) }}
 {# <script src="./steps/jquery-validate-min.js"></script> #}
-
 <script>bulmaSteps.attach();</script>	
-<link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/bulma-steps@2.2.1/dist/css/bulma-steps.min.css') }}">
+<link rel="stylesheet" href="{{ asset('./fichiers/bulma-steps.min.css') }}">
 
 <div class="steps" id="stepsDemo">
 {% include 'souscripteur/steps.html.twig' %}
+
 <div class="steps-content">
 
 {# Etape 1 #}
@@ -185,7 +198,8 @@ Parcourez le formulaire en cliquant sur "Continuer" pour identifier tous les doc
 {% include 'souscripteur/stepsElements/adresse.html.twig' %}
 
 {% include 'souscripteur/stepsElements/telephone.html.twig' %}
-<div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *</span> doivent être remplis</div>
+<div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *<span> doivent être remplis
+</div>
 </div>
 
 {# Etape 2 #}
@@ -202,10 +216,12 @@ Parcourez le formulaire en cliquant sur "Continuer" pour identifier tous les doc
 <div class="step-content has-text-centered">
 {% include 'souscripteur/stepsElements/famille.html.twig' %}
 </div>
+
 {# Etape 5 #}
 <div class="step-content has-text-centered">
 {% include 'souscripteur/stepsElements/documents.html.twig' %}
-<div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *</span> doivent être remplis</div>
+<div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *</span> doivent être remplis
+</div>
 </div>
 
 {# Etape 6 #}
@@ -215,20 +231,12 @@ Parcourez le formulaire en cliquant sur "Continuer" pour identifier tous les doc
       <span class="text">Je valide mon contrat</span>
       <span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
       </button>
-<div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *</span> doivent être remplis</div>
+<div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *</span> doivent être remplis
+</div>
 </div>
 
-{# <div class="step-content has-text-centered">
-      <h1 class="title is-4">Validation</h1>
-      <button class="button " style="background:#5271ff;" type="submit">
-      <span class="text">Je valide</span>
-      <span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
-      </button>
-      <div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *</span> doivent être remplis</div>
-</div> #}
-
-
 </div>
+
 
   <div class="steps-actions">
     <div class="steps-action">
@@ -249,7 +257,7 @@ Parcourez le formulaire en cliquant sur "Continuer" pour identifier tous les doc
   </div>
   </div>
   </div>
-<script src="{{ asset('https://cdn.jsdelivr.net/npm/bulma-steps@2.2.1/dist/js/bulma-steps.js') }}"></script>
+<script src="{{ asset('./fichiers/bulma-steps.min.js') }}"></script>
 <script>bulmaSteps.attach();</script>	
 {% endblock %}
 

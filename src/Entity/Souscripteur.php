@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SouscripteurRepository")
@@ -118,7 +119,7 @@ class Souscripteur
      * @ORM\Column(type="string", length=255)
      */
     private $cartRecto1;
-
+    
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -433,6 +434,7 @@ class Souscripteur
         return $this;
     }
 
+
     public function getCartVerso1(): ?string
     {
         return $this->cartVerso1;
@@ -445,6 +447,7 @@ class Souscripteur
         return $this;
     }
 
+
     public function getCartRecto2(): ?string
     {
         return $this->cartRecto2;
@@ -456,6 +459,7 @@ class Souscripteur
 
         return $this;
     }
+
 
     public function getCartVerso2(): ?string
     {

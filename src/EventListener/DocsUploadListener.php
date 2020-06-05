@@ -44,7 +44,7 @@ class DocsUploadListener
     /**
      * @param $entity
      */
-    private function uploadFileCartRecto1($entity)
+    private function uploadFile($entity)
     {
         // upload only works for Product entities
         if (!$entity instanceof Souscripteur) {
@@ -52,114 +52,41 @@ class DocsUploadListener
         }
 
         $cartRecto1File = $entity->getCartRecto1();
-
-        // only upload new files
-        if ($cartRecto1File instanceof UploadedFile) {
-            $fileNameCartRecto1 = $this->uploader->upload($cartRecto1File);
-
-            $entity->setCartRecto1($fileNameCartRecto1);
-        }
-    }
-
-     /**
-     * @param $entity
-     */
-    private function uploadFileCartVerso1($entity)
-    {
-        // upload only works for Product entities
-        if (!$entity instanceof Souscripteur) {
-            return;
-        }
-
         $cartVerso1File = $entity->getCartVerso1();
 
-        // only upload new files
-        if ($cartVerso1File instanceof UploadedFile) {
-            $fileNameCartVerso1 = $this->uploader->upload($cartVerso1File);
-
-            $entity->setCartVerso1($fileNameCartVerso1);
-        }
-    }
-
-    /**
-     * @param $entity
-     */
-    private function uploadFileCartRecto2($entity)
-    {
-        // upload only works for Product entities
-        if (!$entity instanceof Souscripteur) {
-            return;
-        }
-
         $cartRecto2File = $entity->getCartRecto2();
-
-        // only upload new files
-        if ($cartRecto2File instanceof UploadedFile) {
-            $fileNameCartRecto2 = $this->uploader->upload($cartRecto2File);
-
-            $entity->setCartRecto2($fileNameCartRecto2);
-        }
-    }
-
-     /**
-     * @param $entity
-     */
-    private function uploadFileCartVerso2($entity)
-    {
-        // upload only works for Product entities
-        if (!$entity instanceof Souscripteur) {
-            return;
-        }
-
         $cartVerso2File = $entity->getCartVerso2();
 
-        // only upload new files
-        if ($cartVerso2File instanceof UploadedFile) {
-            $fileNameCartVerso2 = $this->uploader->upload($cartVerso2File);
-
-            $entity->setCartVerso2($fileNameCartVerso2);
-        }
-    }
-
-    /**
-     * @param $entity
-     */
-    private function uploadFileCompoMenage($entity)
-    {
-        // upload only works for Product entities
-        if (!$entity instanceof Souscripteur) {
-            return;
-        }
-
         $compoMenageFile = $entity->getCompoMenage();
-
-        // only upload new files
-        if ($compoMenageFile instanceof UploadedFile) {
-            $fileNameCompoMenage = $this->uploader->upload($compoMenageFile);
-
-            $entity->setCompoMenage($fileNameCompoMenage);
-        }
-    }
-
-    /**
-     * @param $entity
-     */
-    private function uploadFileAutreDoc($entity)
-    {
-        // upload only works for Product entities
-        if (!$entity instanceof Souscripteur) {
-            return;
-        }
-
         $autreDocFile = $entity->getAutreDoc();
 
         // only upload new files
-        if ($autreDocFile instanceof UploadedFile) {
-            $fileNameAutreDoc = $this->uploader->upload($autreDocFile);
+        if (($cartRecto1File instanceof UploadedFile) &&
+        ($cartVerso1File instanceof UploadedFile) &&
+        ($cartRecto2File instanceof UploadedFile) &&
+        ($cartVerso2File instanceof UploadedFile) &&
+        ($compoMenageFile instanceof UploadedFile) &&
+        ($autreDocFile instanceof UploadedFile)) {
+            $fileNameCartRecto1 = $this->uploader->upload($cartRecto1File);
+            $fileNameCartVerso1 = $this->uploader->upload($cartVerso1File);
 
-            $entity->setAutreDoc($fileNameAutreDoc);
+            $fileNameCartRecto2 = $this->uploader->upload($cartRecto2File);
+            $fileNameCartVerso2 = $this->uploader->upload($cartVerso2File);
+
+            $fileNameCompo = $this->uploader->upload($compoMenageFile);
+            $fileNameAutre = $this->uploader->upload($autreDocFile);
+
+            $entity->setCartRecto1($fileNameCartRecto1);
+            $entity->setCartVerso1($fileNameCartVerso1);
+
+            $entity->setCartRecto2($fileNameCartRecto2);
+            $entity->setCartVerso2($fileNameCartVerso2);
+
+            $entity->setCompoMenage($fileNameCompo);
+            $entity->setAutreDoc($fileNameAutre);
         }
     }
+
 
     
 }

@@ -36,36 +36,6 @@ class Conjoint
      */
     private $pays_naissance;
 
-    /*
-     * @ORM\Column(type="string", length=255)
-     
-    private $ville_naissance;
-     */
-    /*
-     * @ORM\Column(type="string", length=255, nullable=true)
-    
-    private $profession;
-     */
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $meme_adresse;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $adresse;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $code_postal;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $ville;
-
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -76,11 +46,6 @@ class Conjoint
      */
     private $tel_domicile;
 
-    /*
-     * @ORM\Column(type="string", length=255)
-    
-    private $email;
-      */
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Souscripteur", mappedBy="conjoint", cascade={"persist", "remove"})
      */
@@ -163,7 +128,7 @@ class Conjoint
         return $this;
     } */
 
-    public function getMemeAdresse(): ?string
+    /* public function getMemeAdresse(): ?string
     {
         return $this->meme_adresse;
     }
@@ -209,7 +174,7 @@ class Conjoint
         $this->ville = $ville;
 
         return $this;
-    }
+    } */
 
     public function getTelephone(): ?string
     {

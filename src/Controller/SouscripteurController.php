@@ -8,6 +8,9 @@ use App\Entity\Beneficiaire;
 use App\Form\SouscripteurType;
 use App\Repository\SouscripteurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Service\FileUploader;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,7 +41,13 @@ class SouscripteurController extends AbstractController
     /**
      * @Route("/new", name="souscripteur_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, 
+    FileUploader $fileUploader1, 
+    FileUploader $fileUploader2, 
+    FileUploader $fileUploader3, 
+    FileUploader $fileUploader4, 
+    FileUploader $fileUploader5, 
+    FileUploader $fileUploader6): Response
     {
         $souscripteur = new Souscripteur();
 
@@ -56,6 +65,42 @@ class SouscripteurController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $cartrecto1File = $form->get('cartRecto1')->getData();
+            $cartverso1File = $form->get('cartVerso1')->getData();
+
+            $cartrecto2File = $form->get('cartRecto2')->getData();
+            $cartverso2File = $form->get('cartVerso2')->getData();
+
+            $compoMenageFile = $form->get('compoMenage')->getData();
+            $autreDocFile = $form->get('autreDoc')->getData();
+
+            if(($cartrecto1File instanceof UploadedFile) && ($cartverso1File instanceof UploadedFile)
+             && 
+             ($cartrecto2File instanceof UploadedFile) && ($cartverso2File instanceof UploadedFile
+              &&
+              ($compoMenageFile instanceof UploadedFile) && ($autreDocFile instanceof UploadedFile))){
+                
+                $recto1fileName = $fileUploader1->upload($cartrecto1File);
+                $verso1fileName = $fileUploader2->upload($cartverso1File);
+
+                $recto2fileName = $fileUploader3->upload($cartrecto2File);
+                $verso2fileName = $fileUploader4->upload($cartverso2File);
+
+                $compofileName = $fileUploader5->upload($compoMenageFile);
+                $autrefileName = $fileUploader6->upload($autreDocFile);
+
+                $souscripteur->setCartRecto1($recto1fileName);
+                $souscripteur->setCartVerso1($verso1fileName);
+
+                $souscripteur->setCartRecto2($recto2fileName);
+                $souscripteur->setCartVerso1($verso2fileName);
+
+                $souscripteur->setCompoMenage($compofileName);
+                $souscripteur->setAutreDoc($autrefileName);
+
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($souscripteur);
             $entityManager->flush();
