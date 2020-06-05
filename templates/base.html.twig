@@ -161,45 +161,60 @@ $(function() {
 	<!-- End Google Tag Manager (noscript) -->
 
 	<header>
-		<div class="container">
-    <div class="columns">
-    		<div class="column is-four-fifths">
-			<a href="{{ path('accueil')}}"><img class="logo-eovi" src="{{ asset('./fichiers/logo.png') }}" width="300px"></a>
-		</div>
-    <div class="column">
-    {% if not app.user %}
-			<button><a href="{{ path('app_login')}}">Espace personnel</a></button>
-      {% else %}
-      <button style="background-color: #00d1b2; border: #00d1b2 solid 2px;"><a href="{{ path('moncompte')}}">Espace personnel</a><br><span style="color:white">Vous êtes connecté(e)</span></button>
-      <br><a href="{{ path('app_logout')}}" style="color:#00d1b2">Se déconnecter</a>
-      {% endif %}
-		</div>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+      <a href="{{ path('accueil')}}"><img class="navbar-item" src="{{ asset('./fichiers/logo.png') }}" width="300" height="100"></a>
 
-    </div>
-		<nav class="navbar is-center" role="navigation" aria-label="main navigation">
-      <div class="navbar-menu is-active">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
-      <div class="navbar-start">
-      <a class="navbar-item" href="{{ path('accueil')}}">Accueil</a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+     <a class="navbar-item" href="{{ path('accueil')}}">Accueil</a>
 				<a class="navbar-item" href="{{ path('waloude')}}">Waloude</a>
 				<a class="navbar-item" href="{{ path('souscripteur_new')}}">Prévoyance</a>
-      </div>
-      <div class="navbar-end">  
-				<a class="navbar-item" href="{{ path('faq_index')}}">FAQ</a>
+        <a class="navbar-item" href="{{ path('faq_index')}}">FAQ</a>
 				<a class="navbar-item" href="{{ path('team')}}">Contactez-nous</a>
+    </div>
+
+    <div class="navbar-end">
+     
+      <div class="navbar-item">
+      {% if not app.user %}
+        <div class="buttons">
+          <a class="button is-primary" href="{{ path('user_registration')}}">
+            <strong>S'inscrire</strong>
+          </a>
+          <a class="button is-light" href="{{ path('app_login')}}">
+            Espace personnel
+          </a>
+        </div>
+        {% else %}
+        <div class="buttons">
+          <a class="button is-light" href="{{ path('moncompte')}}">
+            Mon compte
+          </a>
+        </div>
+         {% endif %}
+
       </div>
-		</div>
-    </nav>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
 		<div class="container">
     <div class="columns is-mobile">
       <div class="column is-11 is-offset-1">
 		<h2 class="texte_defile">Avec Waloude ,mettez à l’abri ceux que vous aimez des conséquences financières d’un décès</h2>
 	</div>
-  </div>
   </div>
 	</header>
 

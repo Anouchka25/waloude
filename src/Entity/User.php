@@ -55,6 +55,7 @@ class User implements UserInterface
     public $confirmPassword;
 
     /**
+     *  @ORM\Column(type="json")
      */
     private $roles = [];
 
