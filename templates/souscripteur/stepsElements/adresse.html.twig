@@ -1,53 +1,14 @@
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">{{ form_label(form.adresse) }}<span style="color:red">*</span></label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              {{ form_widget(form.adresse) 
+      <div class="column">
+              {{ form_row(form.adresse) 
             }}
             </div>
-            <small>{{ form_help(form.adresse) }}</small>
-          <div class="form-error">
-            {{ form_errors(form.adresse) }}
-          </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">{{ form_label(form.code_postal) }}<span style="color:red">*</span></label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              {{ form_widget(form.code_postal) 
+            <div class="column">
+              {{ form_row(form.code_postal) 
             }}
             </div>
-            <small>{{ form_help(form.code_postal) }}</small>
-          <div class="form-error">
-            {{ form_errors(form.code_postal) }}
-          </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">{{ form_label(form.ville) }}<span style="color:red">*</span></label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              {{ form_widget(form.ville) 
+            <div class="column">
+              {{ form_row(form.ville) 
             }}
             </div>
-            <small>{{ form_help(form.ville) }}</small>
-          <div class="form-error">
-            {{ form_errors(form.ville) }}
-          </div>
-          </div>
-        </div>
-      </div>

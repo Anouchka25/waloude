@@ -17,7 +17,22 @@ class TeamType extends AbstractType
     {
         $builder
             ->add('pays')
-            ->add('region')
+            ->add('region', ChoiceType::class, [
+                'choices'  => [
+                    '0' => '0',
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+                    '6' => '6',
+                    '8' => '8',
+                    '9' => '9',
+                    '10' => '10',
+                ],
+                'label' => 'Région *',
+                'attr' => ['class' => 'input'], 
+            ])
             ->add('ville')
             ->add('code_postal')
             ->add('nom')

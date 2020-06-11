@@ -1,0 +1,100 @@
+       {% import "souscripteur/modele_beneficiaire.html.twig" as formModelBeneficiaire %}
+       <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.nombre_beneficiaires) }}</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.nombre_beneficiaires, {'attr': {'class':'input'}}) 
+            }}
+            <p>Nombre de bénéficaires que vous souhaitez ajouter est de 2 maximum</p>
+            </div>
+            <div id="block_beneficiaires" data-prototype="{{ formModelBeneficiaire.beneficiaireCollectionElt(form.beneficiaires.vars.prototype)|e }}"></div>
+                {% do form.beneficiaires.setRendered %}
+            </div>
+
+            <small>{{ form_help(form.nombre_beneficiaires) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.nombre_beneficiaires) }}
+          </div>
+          </div>
+        </div>
+
+       {# <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.nomBenef) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.nomBenef) 
+            }}
+            </div>
+            <small>{{ form_help(form.nomBenef) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.nomBenef) }}
+          </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.prenomBenef) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.prenomBenef) }}
+            </div>
+            <small>{{ form_help(form.prenomBenef) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.prenomBenef) }}
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.datenaissanceBenef) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.datenaissanceBenef, {
+           'attr': {
+           'class':  
+            'input', 
+             }
+          }) 
+            }}
+            </div>
+            <small>{{ form_help(form.datenaissanceBenef) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.datenaissanceBenef) }}
+          </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">{{ form_label(form.paysnaissanceBenef) }}<span style="color:red">*</span></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              {{ form_widget(form.paysnaissanceBenef) 
+            }}
+            </div>
+            <small>{{ form_help(form.paysnaissanceBenef) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.paysnaissanceBenef) }}
+          </div>
+          </div>
+        </div>
+      </div> #}
+
+      

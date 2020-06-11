@@ -1,0 +1,229 @@
+<div class="columns">
+      <div class="column">
+      <p>Votre pièce d'identité(recto) <span style="color:red">*</span></p>
+     <div id="carte_recto1" class="file has-name">
+  <label class="file-label">
+    {{ form_widget(form.cartRecto1File, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+    <span class="file-name">
+      Pas encore de fichier
+    </span>
+  </label>
+</div>
+<small>{{ form_help(form.cartRecto1File) }}</small>
+<div class="form-error">
+   {{ form_errors(form.cartRecto1File) }}
+</div>
+
+<script>
+  const fileInput = document.querySelector('#carte_recto1 input[type=file]');
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector('#carte_recto1 .file-name');
+      fileName.textContent = fileInput.files[0].souscripteur[cartRecto1File];
+    }
+  }
+</script>
+      </div> {# div de la column #}
+
+      <div class="column">
+      <p>Votre pièce d'identité(verso) <span style="color:red">*</span></p>
+     <div id="carte_verso1" class="file has-name">
+  <label class="file-label">
+    {{ form_widget(form.cartVerso1File, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+    <span class="file-name">
+      Pas encore de fichier
+    </span>
+  </label>
+</div>
+<small>{{ form_help(form.cartVerso1File) }}</small>
+<div class="form-error">
+   {{ form_errors(form.cartVerso1File) }}
+</div>
+
+<script>
+  const fileInput = document.querySelector('#carte_verso1 input[type=file]');
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector('#carte_verso1 .file-name');
+      fileName.textContent = fileInput.files[0].souscripteur[cartVerso1File];
+    }
+  }
+</script>
+      </div> {# div de la column #}
+
+           </div> {# div de la columns #}
+
+      <div class="columns">
+      <div class="column">
+      <p>Pièce d'identité(verso) de votre conjoint(e)</p>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+            <div class="file is-large">  
+            <label class="file-label">
+                {{ form_widget(form.cartRecto2File, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+                <span class="file-cta">
+              <span class="file-icon">
+               <i class="fas fa-upload"></i>
+              </span>
+           <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+  </label>
+  </div>
+            </div>
+            <small>{{ form_help(form.cartRecto2File) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.cartRecto2File) }}
+          </div>
+          </div>
+        </div>
+      </div>
+      </div> {# div de la column #}
+      
+      <div class="column">
+      <p>Pièce d'identité(verso) de votre conjoint(e)</p>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+            <div class="file is-large">  
+            <label class="file-label">
+                {{ form_widget(form.cartVerso2File, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+                <span class="file-cta">
+              <span class="file-icon">
+               <i class="fas fa-upload"></i>
+              </span>
+           <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+  </label>
+  </div>
+            </div>
+            <small>{{ form_help(form.cartVerso2File) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.cartVerso2File) }}
+          </div>
+          </div>
+        </div>
+      </div>
+      </div> {# div de la column #}
+
+      </div> {# div de la columns #}
+
+         <div class="columns">
+      <div class="column">
+      <p>Composition du ménage <span style="color:red">*</span></p>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+            <div class="file is-large">  
+            <label class="file-label">
+                {{ form_widget(form.compoMenageFile, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+                <span class="file-cta">
+              <span class="file-icon">
+               <i class="fas fa-upload"></i>
+              </span>
+           <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+  </label>
+  </div>
+            </div>
+            <small>{{ form_help(form.compoMenageFile) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.compoMenageFile) }}
+          </div>
+          </div>
+        </div>
+      </div>
+      </div> {# div de la column #}
+
+      <div class="column">
+      <p>Autre document- "facultatif"</p>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+            <div class="file is-large">  
+            <label class="file-label">
+                {{ form_widget(form.autreDocFile, {
+           'attr': {
+           'class':  
+            'file-input', 
+             }
+          }) 
+            }}
+                <span class="file-cta">
+              <span class="file-icon">
+               <i class="fas fa-upload"></i>
+              </span>
+           <span class="file-label">
+        Choisissez le fichier…
+      </span>
+    </span>
+  </label>
+  </div>
+            </div>
+            <small>{{ form_help(form.autreDocFile) }}</small>
+          <div class="form-error">
+            {{ form_errors(form.autreDocFile) }}
+          </div>
+          </div>
+        </div>
+      </div>
+      </div> {# div de la column #}
+
+</div> {# div de la columns #}
+

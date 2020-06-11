@@ -133,26 +133,20 @@ function afficherAdresse(id) {
 
                   let conjoint = $(this).val();
                   console.log(conjoint);
-                  /*let collectionHolder = $("#block_conjoint");
+                  let collectionHolder = $("#block_conjoint");
 
 
                   //Suppression des ancienne situation
                   collectionHolder.empty();
-                  collectionHolder.data("index", 0);*/
+                  collectionHolder.data("index", 0);
 
                   //Ajout de conjoint ou pas 
                   //if(conjoint=="Marié(e)" || conjoint =="Pacsé(e)" || conjoint =="Concubin(e)" ){
                   if(conjoint=="marie" || conjoint =="pasce" || conjoint =="concubin" ){
-                        //addConjoint(collectionHolder);
-                        //Afficher le formulaire conjoint
-                        $("#block_conjoint").show();
+                        addConjoint(collectionHolder);
                   }
-                  else{
-                    //Cacher le formulaire conjoint
-                    console.log("Pas de conjoint");
-                    $("#block_conjoint").hide();
-                  }
-                        
+                  else
+                        console.log("Pas de conjoint");
             });
       });
 
@@ -162,7 +156,13 @@ function afficherAdresse(id) {
 
 
 
-<div class="section-form box">
+<div class="section-form">
+   <div class="container">
+	<div class="columns is-vbottom">
+          <div class="column is-three-fifths is-offset-one-fifth column-form">
+              <div class="form_body">
+			
+
 
 <h1 style="font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">
                         Souscrire à l'assurance
@@ -184,25 +184,20 @@ function afficherAdresse(id) {
 <div class="box" style="color:red">
 Parcourez le formulaire en cliquant sur "Continuer" pour identifier tous les documents et informations nécéssaires à la validation du contrat.
 </div>
-<div class="columns">
+
 {% include 'souscripteur/stepsElements/civilite.html.twig' %}
 
 {% include 'souscripteur/stepsElements/nomPrenom.html.twig' %}
-   </div>
 
-<div class="columns">
 {% include 'souscripteur/stepsElements/paysNaissance.html.twig' %}
 
 {% include 'souscripteur/stepsElements/paysResidence.html.twig' %}
-</div>
-{# {% include 'souscripteur/stepsElements/profession.html.twig' %} #}
-  <div class="columns">
-{% include 'souscripteur/stepsElements/adresse.html.twig' %}
-</div>
 
- <div class="columns is-three-fifths is-offset-one-fifth">
+{# {% include 'souscripteur/stepsElements/profession.html.twig' %} #}
+  
+{% include 'souscripteur/stepsElements/adresse.html.twig' %}
+
 {% include 'souscripteur/stepsElements/telephone.html.twig' %}
-</div>
 <div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *<span> doivent être remplis
 </div>
 </div>
@@ -230,10 +225,13 @@ Parcourez le formulaire en cliquant sur "Continuer" pour identifier tous les doc
 </div>
 
 {# Etape 6 #}
-<div class="step-content">
+<div class="step-content has-text-centered">
 {% include 'souscripteur/stepsElements/cotisation.html.twig' %}
-<div style="text-align:center">
-Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *</span> doivent être remplis
+<button class="button " style="background:#5271ff;" type="submit">
+      <span class="text">Je valide mon contrat</span>
+      <span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
+      </button>
+<div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *</span> doivent être remplis
 </div>
 </div>
 
@@ -254,6 +252,10 @@ Pour valider le formulaire, tous les champs marqués par<span style="color:red">
 {# <script src="{{ asset('./fichiers/steps/jquery.validate.js') }}"></script> #}
 
 {{ form_end(form) }}
+  </div>
+  </div>
+  </div>
+  </div>
   </div>
 <script src="{{ asset('./fichiers/bulma-steps.min.js') }}"></script>
 <script>bulmaSteps.attach();</script>	

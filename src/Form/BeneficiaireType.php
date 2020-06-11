@@ -15,8 +15,14 @@ class BeneficiaireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
+            ->add('nom', TextType::class, [
+                'label' => 'Nom de famille *',
+                'attr' => ['class' => 'input'], 
+                ])
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom *',
+                'attr' => ['class' => 'input'],
+            ])
             ->add('date_naissance', BirthdayType::class, [
                 'attr' => ['class' => 'input'],
                 'placeholder' => [
@@ -31,9 +37,18 @@ class BeneficiaireType extends AbstractType
                 'label' => 'Pays de naissance'
                 
             ])
-            ->add('telephone')
-            ->add('tel_domicile')
-            ->add('email')
+            ->add('telephone', TextType::class, [
+                'label' => 'Téléphone *',
+                'attr' => ['class' => 'input'], 
+                ])
+            ->add('tel_domicile', TextType::class, [
+                'label' => 'Tél domicile',
+                'attr' => ['class' => 'input'], 
+                ])
+            ->add('email', TextType::class, [
+                'label' => 'Email *',
+                'attr' => ['class' => 'input'], 
+                ])
            // ->add('souscripteur')
         ;
     }

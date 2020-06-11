@@ -66,6 +66,11 @@ class SouscripteurController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            if($souscripteur->getSituationFamiliale()!="marie" && 
+                $souscripteur->getSituationFamiliale() !="pasce" && $souscripteur->getSituationFamiliale() !="concubin" ){
+                    $souscripteur->setConjoint(null);
+            }
+
             $cartrecto1File = $form->get('cartRecto1')->getData();
             $cartverso1File = $form->get('cartVerso1')->getData();
 

@@ -1,66 +1,77 @@
 {# {% import "souscripteur/stepsElements/civilite.html.twig" as civilite %} #}
 
 {# {%  if civilite=="marie" %} #}
-<div class="box">
-<h2 class="subtitle">
-Sur la base des informations que vous nous avez communiquées, votre cotisation est la suivante:
-</h2>
-<table class="table">
-<tr>
-<td>
+<div class="columns">
+<div class="column is-full has-text-centered">
+<h1 class="title">Sur la base des informations que vous nous avez communiquées, votre cotisation est la suivante:</h1>
+</div>
+</div>
+<div class="columns">
+<div class="column is-6">
 <p>- Vous êtes marié(e) ou en couple avec ou sans enfants<br/>
 - Vous êtes célibataire, veuf(e) et avec des enfants, vous cotisez : </p>
 <strong style="font-size:20px; color:#b01c87">120 euro/an</strong>
 <p style="font-size:15px">Soit 10 euro/mois</p>
-</td>
-
-<td>
+</div>
+<div class="column is-6">
 <p>Vous êtes seul(e), célibataire, veuf(e) et sans enfants, vous cotisez: </p>
 <strong style="font-size:20px; color:#b01c87">60 euro/an</strong>
 <p style="font-size:15px">Soit 5 euro/mois</p>
-</td>
-</tr>
-</table>
------------------------------------------------------<br>
-<table>
-<thead>
-    <tr>
-        <th>Ce capital permet de couvrir :</th>
-    </tr>
-  </thead>
-<tbody>
-<tr style="height: 50px;">
-<td style="color:#b01c87"></td>
+</div>
+</div>
+<div class="columns">
+<div class="column is-full has-text-centered">
+<h1 class="title">Ce capital permet de couvrir :<h1/>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="display:flex; justify-content:center; align-items:center;">
+<table class="table">
+<tr>
 <td><i class="fas fa-check"></i> les frais de rapatriement</td>
 </tr>
-<tr style="height: 50px;">
-<td style=" color:#b01c87"></td>
+<tr>
 <td><i class="fas fa-check"></i> Les frais d’obsèques (1500 euros)</td>
 </tr>
-<tr style="height: 50px;">
-<td style=" color:#b01c87"></td>
+<tr>
 <td><i class="fas fa-check"></i> Mise en disposition véhicule funéraire</td>
 </tr>
-</tbody>
-<tfoot>
 <tr>
-<td>
-Pour vous et toute votre famille
-</td>
+<td><strong style="color:#b01c87">Pour vous et toute votre famille</strong></td>
 </tr>
-</tfoot>
 </table>
+</div>
 </div>
 
 <div class="columns">
-<h2 class="column is-full subtitle">Choisissez votre mode de paiement</h2>
-</div>
-<div class="field">
+<div class="column is-full has-text-centered">
+<h1 class="title">Choisissez votre mode de paiement: </h1>
+<div>
   <input class="is-checkradio is-rtl" id="exampleRtlRadioInline1" type="radio" name="exampleRtlRadioInline" checked="checked">
   <label for="exampleRtlRadioInline1">Prélèvement SEPA</label>
 
   <input class="is-checkradio is-rtl" id="exampleRtlRadioInline2" type="radio" name="exampleRtlRadioInline">
   <label for="exampleRtlRadioInline2">Comptant</label>
+</div><br/><br/>
+<div>
+  <button class="button" 
+  style="
+    background:#5271ff; color: #fff;
+    font-family: "Montserrat";
+    border: 0;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 18px 35px 18px 25px;
+    border-radius: 30px;" 
+    type="submit">
+      <span class="text">Je valide mon contrat</span>
+      <span class="icon is-small"><i class="fas fa-arrow-right"></i></span>
+      </button>
+      </div>
 </div>
+</div>
+
 
 

@@ -8,6 +8,7 @@ use App\Form\EnfantType;
 use App\Entity\Beneficiaire;
 use App\Form\BeneficiaireType;
 use App\Form\ConjointType;
+use App\Form\Conjoint;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,15 +33,16 @@ class SouscripteurType extends AbstractType
                     'Mademoiselle' => 'mademoiselle',
                     'Monsieur' => 'monsieur',
                 ],
-                'label' => 'Civilité',
+                'label' => 'Civilité *',
+                'attr' => ['class' => 'input'],
             ])
             //->add('nom', TextType::class)
             ->add('nom', TextType::class, [
-                'label' => 'Nom de famille',
+                'label' => 'Nom de famille *',
                 'attr' => ['class' => 'input'], 
                 ])
             ->add('prenom', TextType::class, [
-                'label' => 'Prénom',
+                'label' => 'Prénom *',
                 'attr' => ['class' => 'input'], 
                 ])
             ->add('nom_jeune_fille', TextType::class, [
@@ -51,35 +53,45 @@ class SouscripteurType extends AbstractType
                 'placeholder' => [
                     'day' => 'Jour', 'month' => 'Mois', 'year' => 'Année',  
                 ],
-                'label' => 'Date de naissance'
+                'label' => 'Date de naissance *',
+                'attr' => ['class' => 'input'],
             ])
             ->add('pays_naissance', CountryType::class, [
                 'attr' => ['class' => 'input'], 
                 'choice_translation_locale' => null,
                 'preferred_choices'=>['FR', 'SN'],
-                'label' => 'Pays de naissance'
+                'label' => 'Pays de naissance *'
                 
             ])
             //->add('ville_naissance')
             ->add('pays_residence', CountryType::class, [
                 'attr' => ['class' => 'input'],
                 'preferred_choices'=>['FR'], 
-                'label' => 'Pays de résidence'
+                'label' => 'Pays de résidence *'
                 
             ])
             ->add('ville_residence', TextType::class, [
-                'label' => 'Ville de résidence',
+                'label' => 'Ville de résidence *',
                 'attr' => ['class' => 'input'], 
                 ])
             /* ->add('profession', TextType::class, [
                 'label' => 'Profession',
                 'attr' => ['class' => 'input'], 
                 ]) */
-            ->add('adresse')
-            ->add('code_postal')
-            ->add('ville')
+            ->add('adresse', TextType::class, [
+                'label' => 'Adresse N° de rue et nom *',
+                'attr' => ['class' => 'input'], 
+                ])
+            ->add('code_postal', TextType::class, [
+                'label' => 'Code postal *',
+                'attr' => ['class' => 'input'], 
+                ])
+            ->add('ville', TextType::class, [
+                'label' => 'Ville *',
+                'attr' => ['class' => 'input'], 
+                ])
             ->add('telephone', TextType::class, [
-                'label' => 'Téléphone',
+                'label' => 'Téléphone *',
                 'attr' => ['class' => 'input'], 
                 ])
             ->add('tel_domicile', TextType::class, [
@@ -118,7 +130,8 @@ class SouscripteurType extends AbstractType
                     '9' => '9',
                     '10' => '10',
                 ],
-                'label' => 'Nombre d\'enfants'
+                'label' => 'Nombre d\'enfants *',
+                'attr' => ['class' => 'input'], 
             ])
             ->add('enfants', CollectionType::class, [
                 'entry_type' => EnfantType::class,
@@ -126,12 +139,9 @@ class SouscripteurType extends AbstractType
                 'allow_delete'=>true,
                 'by_reference'=>false
                 ])
-            ->add('conjoint', CollectionType::class, array(
+            ->add('conjoint', ConjointType::class, array(
                 'label'=>'Conjoint',
-                'entry_type'=>ConjointType::class,
-                'allow_add'=>true,
-                'allow_delete'=>true,
-                'by_reference'=>false
+                'required'=>false
             ))
 
             ->add('nombre_beneficiaires', ChoiceType::class, [
@@ -139,7 +149,8 @@ class SouscripteurType extends AbstractType
                     '1' => '1',
                     '2' => '2',
                 ],
-                'label' => 'Nb bénéficaires'
+                'label' => 'Nb bénéficaires *',
+                'attr' => ['class' => 'input'], 
             ])
             ->add('beneficiaires', CollectionType::class, [
                 'entry_type' => BeneficiaireType::class,

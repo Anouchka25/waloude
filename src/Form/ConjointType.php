@@ -56,8 +56,14 @@ class ConjointType extends AbstractType
                 'label' => 'Ville',
                 'attr' => ['class' => 'memeAdresse'], 
                 ]) */
-            ->add('telephone')
-            ->add('tel_domicile')
+            ->add('telephone', TextType::class, [
+                'label' => 'Téléphone *',
+                'attr' => ['class' => 'input'], 
+                ])
+            ->add('tel_domicile', TextType::class, [
+                'label' => 'Tél domicile',
+                'attr' => ['class' => 'input'], 
+                ])
            // ->add('email')
             //->add('souscripteur')
         ;

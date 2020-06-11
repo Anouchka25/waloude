@@ -1,0 +1,14 @@
+      <div class="columns">
+        <div class="column">
+          <label class="label">{{ form_label(form.civilite) }}<span style="color:red">*</span></label>
+          {{ form_widget(form.civilite, {
+           'attr': {
+           'class':  
+            'input', 
+             }
+          }) 
+            }}
+<small>{{ form_help(form.civilite) }}</small>
+ {{ form_errors(form.civilite) }}
+        </div>
+      </div>

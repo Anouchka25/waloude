@@ -3,13 +3,31 @@
 {% block title %}Contactez-nous{% endblock %}
 
 {% block body %}
-    <h1 style="text-align:center; font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">Contactez-nous</h1>
+    <h1 style="text-align:center; font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">Nos ambassadeurs</h1>
 
 <section >
   <div class="container">
     <div class="columns">
+    <div class="column">
+    <form action="" method="post">
+    <div class="field">
+  <div class="control">
+    <div class="select is-large">
+      <select name="selectRegion">
+        <option>Selectionnez la Région</option>
+         {% for team in teams %}
+        <option>{{ team.region }}<br></option>
+        {% else %}
+           <option>no records found</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+</form>
+</div>
        {# Debut du bloc #}
-       {% for team in teams %}
+       {% if(isset($_POST['selectRegion'])) %}
       <div class="column">
         <div class="box">
           <article class="media">
@@ -37,7 +55,7 @@
       </div>
       {% else %}
            <p> no records found</p>
-        {% endfor %}
+        {% endif %}
 
         
         {# Fin du bloc #}
@@ -46,41 +64,5 @@
 
 </section>
 
-    <section style="margin-top:20px; margin-bottom:20px">
-    <div class="container">
-       <div class="columns">
-       <div class="column box is-half is-offset-one-quarter">
-
-       <h1 class="title">Formulaire de contact </h1>
-       
-      <form id="form" method="POST" action="form-data/formdata.php">
-
-        <label class="label">Nom et prénom</label>
-        <div class="control">
-        <input  name="nom_prenom" value="" class="input is-medium requis" type="text">
-        </dv>
-        
-
-        <label class="label">Email</label>
-        <div class="control">
-        <input name="email" value="" class="input is-medium requis" type="email">
-        </dv>
-        
-
-        <label class="label">Message</label>
-        <div class="control">
-        <textarea class="textarea" rows="10"> </textarea>
-        </div>
-        
-        <div class="control">
-							<button type="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">Envoyez votre Message</button>
-						</div>
-      </form>
-      </div>
-      </div>
-      </div>
-    </section>
-
-    
     
 {% endblock %}

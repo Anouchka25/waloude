@@ -15,14 +15,20 @@ class EnfantType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
+            ->add('nom', TextType::class, [
+                'label' => 'Nom de famille *',
+                'attr' => ['class' => 'input'], 
+                ])
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom *',
+                'attr' => ['class' => 'input'], 
+                ])
             ->add('date_naissance', BirthdayType::class, [
                 'attr' => ['class' => 'input'],
                 'placeholder' => [
                     'day' => 'Jour', 'month' => 'Mois', 'year' => 'Année',  
                 ],
-                'label' => 'Date de naissance'
+                'label' => 'Date de naissance *'
             ])
             /* ->add('lien_affiliation', ChoiceType::class, [
                 'choices'  => [

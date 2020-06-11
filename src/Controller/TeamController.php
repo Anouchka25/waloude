@@ -23,9 +23,20 @@ class TeamController extends AbstractController
      */
     public function index(TeamRepository $teamRepository): Response
     {
-        return $this->render('team/index.html.twig', [
-            'teams' => $teamRepository->findAll(),
+        $regionTeam = $teamRepository->findBy(['region' => $this->getRegion()]);
+
+        return $this->render('team/nosambassadeurs.html.twig', [
+            'teams' => $regionTeam,
         ]);
+    }
+
+    
+    /**
+     * @Route("/contact", name="contact", methods={"GET"})
+     */
+    public function contact(): Response
+    {
+        return $this->render('team/contact.html.twig');
     }
 
     /**

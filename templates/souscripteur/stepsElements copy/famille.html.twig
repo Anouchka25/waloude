@@ -13,18 +13,14 @@
               {{ form_widget(form.situation_familiale) }}
             </div>
             
-            {#<div id="block_conjoint_1" data-prototype="{{ formModelConjoint.conjointCollectionElt(form.conjoint.vars.prototype)|e }}"></div>
-            {% do form.conjoint.setRendered %}#}
-            {#</div>#}
+            <div id="block_conjoint" data-prototype="{{ formModelConjoint.conjointCollectionElt(form.conjoint.vars.prototype)|e }}"></div>
+            {% do form.conjoint.setRendered %}
+            </div>
 
             <small>{{ form_help(form.situation_familiale) }}</small>
-            <div class="form-error">
-              {{ form_errors(form.situation_familiale) }}
-            </div>
+          <div class="form-error">
+            {{ form_errors(form.situation_familiale) }}
           </div>
-          
-          <div id="block_conjoint" class="field" >
-          {{ form_widget(form.conjoint) }}
-          </div>            
+          </div>
         </div>
       
