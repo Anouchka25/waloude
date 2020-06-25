@@ -85,7 +85,7 @@ class Conjoint
         return $this->date_naissance;
     }
 
-    public function setDateNaissance(\DateTimeInterface $date_naissance): self
+    public function setDateNaissance(\DateTimeInterface $date_naissance=null): self
     {
         $this->date_naissance = $date_naissance;
 

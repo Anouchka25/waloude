@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "doctrine/annotations": "^1.8",
         "easycorp/easyadmin-bundle": "^2.3",
+        "ruflin/elastica": "^7.0",
         "sensio/framework-extra-bundle": "^5.1",
         "spipu/html2pdf": "^5.2",
         "symfony/apache-pack": "^1.0",

@@ -1,20 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Ambassadeurs{% endblock %}
+{% block title %}Contactez-nous{% endblock %}
 
 {% block body %}
+    <h1 style="text-align:center; font-size:29px;color:#5271ff;font-weight: 700;line-height:1em; margin-bottom: 20px;">Nos ambassadeurs</h1>
 
-    <section style=" height:200px; background-image: url(../fichiers/imgnosambassadeurs.png); background-repeat: no-repeat; !important;">
-     <h1 style="padding-left:20px; padding-top:70px; font-size:29px; color:black; font-weight:bold;">Nos Ambassadeurs</h1>
-     </section>
-
-     {% include 'trait.html.twig' %}
 <section >
   <div class="container">
     <div class="columns">
     <div class="column">
     <form action="" method="post">
-<div class="field">
+    <div class="field">
   <div class="control">
     <div class="select is-large">
       <select name="selectRegion">
@@ -26,17 +22,12 @@
         {% endfor %}
       </select>
     </div>
-    <button type="submit" class="button is-primary is-large">Rechercher</button>
-  
   </div>
 </div>
 </form>
 </div>
-</div>
-
        {# Debut du bloc #}
-       {% for team in teams %}
-        <div class="columns">
+       {% if(isset($_POST['selectRegion'])) %}
       <div class="column">
         <div class="box">
           <article class="media">
@@ -69,8 +60,6 @@
         
         {# Fin du bloc #}
        </div>
-
-
        </div>    
 
 </section>

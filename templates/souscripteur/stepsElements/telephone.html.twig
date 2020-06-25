@@ -1,10 +1,13 @@
-<div class="column is-3">
+<div class="colum">
               {{ form_row(form.telephone) 
             }}
             </div>
 
-            <div class="column is-3">
+            <div class="column">
               {{ form_row(form.tel_domicile) 
             }}
             </div>
 
+           <div class="column">
+            {% include 'souscripteur/stepsElements/profession.html.twig' %}
+           </div>

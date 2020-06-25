@@ -27,7 +27,7 @@ class Enfant
     private $prenom;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $date_naissance;
 
@@ -106,5 +106,10 @@ class Enfant
         $this->souscripteur = $souscripteur;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nom." ".$this->prenom;
     }
 }

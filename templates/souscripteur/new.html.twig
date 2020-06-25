@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" href="{{ asset('./fichiers/bulma.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('./fichiers/bulma-steps.min.css') }}">
+{#<link rel="stylesheet" href="{{ asset('./fichiers/bulma-steps.min.css') }}">#}
 
 <script>
 //Ajout d'un bénéficiaires
@@ -170,8 +171,8 @@ function afficherAdresse(id) {
 
 {{ form_start(form, {'id':'formSouscripteur'}) }}
 {# <script src="./steps/jquery-validate-min.js"></script> #}
-<script>bulmaSteps.attach();</script>	
-<link rel="stylesheet" href="{{ asset('./fichiers/bulma-steps.min.css') }}">
+{#<script>bulmaSteps.attach();</script>	#}
+
 
 <div class="steps" id="stepsDemo">
 {% include 'souscripteur/steps.html.twig' %}
@@ -200,7 +201,7 @@ Parcourez le formulaire en cliquant sur "Continuer" pour identifier tous les doc
 {% include 'souscripteur/stepsElements/adresse.html.twig' %}
 </div>
 
- <div class="columns is-three-fifths is-offset-one-fifth">
+ <div class="columns">
 {% include 'souscripteur/stepsElements/telephone.html.twig' %}
 </div>
 <div style="text-align:center">Pour valider le formulaire, tous les champs marqués par<span style="color:red"> *<span> doivent être remplis

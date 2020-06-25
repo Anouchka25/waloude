@@ -29,12 +29,12 @@ class Beneficiaire
     private $prenom;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $date_naissance;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $pays_naissance;
 
@@ -158,6 +158,11 @@ class Beneficiaire
         $this->souscripteur = $souscripteur;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nom." ".$this->prenom;
     }
 
 }

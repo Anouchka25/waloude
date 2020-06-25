@@ -42,6 +42,20 @@ header>div{width: 50%;}
 header button>a{color: white;}
 .navbar-item {color:#b01c87; font-weight: 900;}
 
+@media screen and (max-width: 1023px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .navbar-brand {
+    min-width: 100%;
+  }
+  .navbar-menu {
+    margin-left: auto;
+    min-width: 50%;
+  }
+}
+
 /* header button{background-color: #5271ff; border: #5271ff solid 2px; width: 200px; height: 70px;}
 header button>a{color: white; font-weight: bold; font-size: 20px;}
 header button>a:hover{color: white; border-bottom: #b01c87 solid 5px;}

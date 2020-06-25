@@ -2,7 +2,7 @@
          souscripteur[situation_familiale]{ margin-left: -20px; box-sizing: border-box;}
      </style>
      
-      {% import "souscripteur/modele_conjoint.html.twig" as formModelConjoint %}
+      {#{% import "souscripteur/modele_conjoint.html.twig" as formModelConjoint %}#}
       <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label">{{ form_label(form.situation_familiale) }}<span style="color:red">*</span></label>
@@ -27,4 +27,5 @@
           {{ form_widget(form.conjoint) }}
           </div>            
         </div>
+      </div>
       

@@ -3,8 +3,8 @@
 
     {% block title %}Accueil - Waloude Prévoyance Décès{% endblock %}
 
-    {% block body %}
-    <section class="section-form" style="background-image: url(../fichiers/img1.png) !important;">
+    {% block body %}    
+<section class="section-form" style="background-image: url(../fichiers/img1.png) !important;">
 		<div class="container">
 			<div class="columns is-vbottom">
 				<div class="column is-6 column-texte"><!--<p><span style='font-weight:500'>Aésio Prévoyance Décès</span><br><span style='font-weight:900'>Nous sommes le lien qui assurera l'avenir de vos proches</span></p><span class='arrow-texte icon-arrow-texte'></span>--></div>
@@ -31,32 +31,7 @@
 			<input type="hidden" name="utm_source" id="utm_source" value="">
 			<input type="hidden" name="origine" id="origine" value="2go">
         <div class="columns is-gapless is-multiline">
-				<!-- 	<div class="box_field column is-12 columns is-gapless">
-
-									<div class="column field-label is-narrow"><label class="label">Civilité *</label></div>
-								
-				<div class="column field-input">
-
-												<input class="requis is-checkradio is-small civilite" id="civilite_madame" type="radio" name="civilite" value="madame">
-							<label for="civilite_madame">Madame</label>
-													<input class="requis is-checkradio is-small civilite" id="civilite_monsieur" type="radio" name="civilite" value="monsieur">
-							<label for="civilite_monsieur">Monsieur</label>
-											
-				</div>
-
-			</div> -->
-				<!-- 	<div class="box_field column is-12 columns is-gapless">
-
-									<div class="column field-label is-narrow"><label class="label">Nom *</label></div>
-								
-				<div class="column field-input">
-
-											<input id="nom" name="nom" value="" class="input requis" type="text">
 				
-					
-				</div>
-
-			</div> -->
 					<div class="box_field column is-12 columns is-gapless">
 
 									<div class="column field-label is-narrow"><label class="label">Prénom *</label></div>
@@ -92,42 +67,7 @@
 				</div>
 
 			</div>
-					<!-- <div class="box_field column is-6 columns is-gapless">
-
-									<div class="column field-label is-narrow"><label class="label">Né(e) le *</label></div>
-								
-				<div class="column field-input">
-
-											<input id="naissance" value="" name="naissance" placeholder="__/__/____" class="input requis date_naissance mask" type="text">
-				
 					
-				</div>
-
-			</div>
-					<div class="box_field column is-6 columns is-gapless">
-
-									<div class="column field-label is-narrow"><label class="label">Code postal *</label></div>
-								
-				<div class="column field-input">
-
-											<input id="zipcode" name="zipcode" value="" placeholder="_____" class="input requis cp mask" type="text">
-				
-					
-				</div>
-
-			</div>
-					<div class="box_field column is-6 columns is-gapless">
-
-									<div class="column field-label is-narrow"><label class="label">Ville </label></div>
-								
-				<div class="column field-input">
-
-											<input id="city" name="city" value="" class="input " type="text" disabled="disabled">
-				
-					
-				</div>
-
-			</div> -->
 					<div class="box_field column is-12 marge_check columns is-gapless">
 
 								
@@ -163,10 +103,21 @@
 		</div>
 	</section>
 
+{% include 'trait.html.twig' %}
+
 	
 	<section class="section-texte-image">
 	<div class="container container-padding">
-	<h2 class="title is-4" style="margin-bottom:50px">Protéger l’avenir de votre famille, c’est essentiel avec waloude Prévoyance Décès</h2>
+<div class="columns columns-vcenter">
+			<div class="column is-10">
+			<h2 class="title is-4" style="margin-bottom:50px">Protéger l’avenir de votre famille, c’est essentiel avec waloude Prévoyance Décès</h2>
+			</div>
+
+			<div class="column ">
+{# 			<button class"button is-fixed-right">Trouver des ambassadeurs</button> #}
+			</div>
+	</div>
+
 		<div class="columns columns-vcenter">
 			<div class="column is-6 texte">
 
@@ -182,29 +133,29 @@
 
 			</div>
 		</div>
-	</div>
 
-	<div class="columns columns-vcenter">
-			<div class="column box is-size-3 is-three-fifths is-offset-one-fifth has-text-weight-bold has-text-black has-background-grey-lighter">
+		<div class="columns columns-vcenter">
+			<div class="column box is-size-3 has-text-weight-bold has-text-black has-background-grey-lighter">
               Avec l'offre waloude Prévoyance Décès, vous mettez à l’abri ceux que vous aimez des conséquences financières d’un décès prématuré, par accident ou maladie, grâce au versement d’un capital décès.
 
 			</div>
+	</div>
 	</div>
 </section>	
 
 <section class="section-texte-image">
 	<div class="container container-padding">
 		<div class="columns columns-vcenter">
-			<div class="column is-7 texte">
+			<div class="column is-6 texte" >
 		<p style="height: 70px; font-weight: bold; color: #5271ff ; font-size: xx-large;"> Bonnes raisons de souscrire maintenant :</p>
-	</p>
+	</p><br/>
 	<table>
 		<tr style="height: 100px;" >
 			<td style="padding-right: 20px;">
 				<i class="fas fa-mouse-pointer"></i>
 		   </td>
 		<td>
-			Des garanties avec prise d’effet immédiate(1).</strong>
+			Des garanties avec prise d’effet immédiate.</strong>
 			</td>
 		</tr>
 		<tr style="height: 100px;" >
@@ -212,13 +163,6 @@
 				<i class="fas fa-mouse-pointer"></i>
 		   </td>
 		<td><strong>Couverture quelle qu'en soit la cause :</strong> maladie ou accident, vie privée ou professionnelle.</td>
-		</tr>
-		<tr style="height: 100px;" >
-			<td>
-				<i class="fas fa-mouse-pointer"></i>
-		   </td>
-		<td>Une souscription facilitée sur <strong>simple déclaration de santé(2)</strong>
-		</td>
 		</tr>
 		<tr style="height: 100px;" >
 			<td>
@@ -300,65 +244,61 @@
 </section>	
 
 <section class="section-texte-image">
-	<h2  class="container" style="margin-bottom: 20px; color:#5271ff; font-size: xx-large; font-weight: bold; ">En bref : nos formules et garanties Assurance </h2>
+	<h2  class="container" style="margin-bottom: 20px; color:#5271ff; font-size: xx-large; font-weight: bold; ">En bref : Waloude vous garanties </h2>
 	<div class="container container-padding">
 		<div class="columns ">
 			<div class="column">
 				
 
-					<article class="notification media has-background-grey-lighter">
-				
-						<figure class="media-left">
-							<span style="padding:20px; border-radius:50%;" class=" has-background-info is-size-4 has-text-weight-bold has-text-black-bis has-text-center">1</span>
-						</figure>
+					<article class="notification media" style="border:2px purple solid">
 						<div class="media-content">
 							<div class="content">
 								<p class="is-size-4 has-text-weight-bold has-text-black-bis has-text-justified">
-				    Rapatriement du corps<br><br>
 					Prise en charge total<br><br>
 					Démarches administratives<br>
 					</p>
 							</div>
 						</div>
 				</article>
+				<figure class="media-left">
+							<span class="is-size-4 has-text-weight-bold" style="color:purple"> 1- Rapatriement du corps</span>
+						</figure>
 			</div>
 
 			<div class="column">
 				
 
-					<article class="notification media has-background-grey-lighter">
-				
-						<figure class="media-left">
-							<span style="padding:20px; border-radius:50%;" class=" has-background-info is-size-4 has-text-weight-bold has-text-black-bis has-text-center">2</span>
-						</figure>
+					<article class="notification media " style="border:2px purple solid">
 						<div class="media-content">
 							<div class="content">
 								<p class="is-size-4 has-text-weight-bold has-text-black-bis has-text-justified">
-				    Arriver au pays<br><br>
-					Mise en disposition véhicule funèbre<br><br><br><br>
+					Mise en disposition véhicule funèbre<br><br><br>
 					</p>
 							</div>
 						</div>
 				</article>
+				<figure class="media-left">
+							<span class="is-size-4 has-text-weight-bold" style="color:purple">  2- Arriver au pays</span>
+						</figure>
 			</div>
 			
 			<div class="column">
 				
 
-					<article class="notification media has-background-grey-lighter">
+					<article class="notification media" style="border:2px purple solid">
 				
-						<figure class="media-left">
-							<span style="padding:20px; border-radius:50%;" class=" has-background-info is-size-4 has-text-weight-bold has-text-black-bis has-text-center">3</span>
-						</figure>
 						<div class="media-content">
 							<div class="content">
 								<p class="is-size-4 has-text-weight-bold has-text-black-bis has-text-justified">
-				    Versement au bénéficiaire<br><br>
-					Jusqu'à 1 Million de CFA <br><br><br>
+					Jusqu'à 1 Million de CFA <br><br><br><br>
 					</p>
 							</div>
 						</div>
 				</article>
+				<figure class="media-left">
+							<span class="is-size-4 has-text-weight-bold" style="color:purple">  3- Versement au bénéficiaire<br><br>
+							</span>
+						</figure>
 			</div>
 
 	    </div>

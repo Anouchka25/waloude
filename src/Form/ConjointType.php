@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 
 class ConjointType extends AbstractType
@@ -24,7 +24,7 @@ class ConjointType extends AbstractType
                 'label' => 'Prénom',
                 'attr' => ['class' => 'input'], 
                 ])
-            ->add('date_naissance', BirthdayType::class, [
+            ->add('date_naissance', DateType::class, [
                 'attr' => ['class' => 'input'],
                 'placeholder' => [
                     'day' => 'Jour', 'month' => 'Mois', 'year' => 'Année',  

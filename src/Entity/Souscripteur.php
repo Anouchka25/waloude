@@ -66,7 +66,7 @@ class Souscripteur
     private $ville_residence;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $profession;
 
@@ -106,7 +106,7 @@ class Souscripteur
     private $nombre_enfants;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Enfant", mappedBy="souscripteur")
+     * @ORM\OneToMany(targetEntity="App\Entity\Enfant", mappedBy="souscripteur", cascade={"all"})
      */
     private $enfants;
 
@@ -151,7 +151,7 @@ class Souscripteur
     private $reference;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Beneficiaire", mappedBy="souscripteur")
+     * @ORM\OneToMany(targetEntity="App\Entity\Beneficiaire", mappedBy="souscripteur", cascade={"all"})
      */
     private $beneficiaires;
 
@@ -247,17 +247,6 @@ class Souscripteur
         return $this;
     }
 
-    /* public function getVilleNaissance(): ?string
-    {
-        return $this->ville_naissance;
-    }
-
-    public function setVilleNaissance(string $ville_naissance): self
-    {
-        $this->ville_naissance = $ville_naissance;
-
-        return $this;
-    } */
 
     public function getPaysResidence(): ?string
     {

@@ -23,10 +23,9 @@ class TeamController extends AbstractController
      */
     public function index(TeamRepository $teamRepository): Response
     {
-        $regionTeam = $teamRepository->findBy(['region' => $this->getRegion()]);
 
         return $this->render('team/nosambassadeurs.html.twig', [
-            'teams' => $regionTeam,
+            'teams' => $teamRepository->findAll(),
         ]);
     }
 

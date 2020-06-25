@@ -55,21 +55,21 @@ class SouscripteurController extends AbstractController
                                      //strtoupper — Renvoie une chaîne en majuscules
         $souscripteur->setReference($ref);
 
-        $enfant = new Enfant();
+        /*$enfant = new Enfant();
         $souscripteur->addEnfant($enfant);
 
         $beneficiaire = new Beneficiaire();
-        $souscripteur->addBeneficiaire($beneficiaire);
+        $souscripteur->addBeneficiaire($beneficiaire);*/
 
         $form = $this->createForm(SouscripteurType::class, $souscripteur);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            if($souscripteur->getSituationFamiliale()!="marie" && 
+        if($souscripteur->getSituationFamiliale()!="marie" && 
                 $souscripteur->getSituationFamiliale() !="pasce" && $souscripteur->getSituationFamiliale() !="concubin" ){
                     $souscripteur->setConjoint(null);
             }
+
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $cartrecto1File = $form->get('cartRecto1')->getData();
             $cartverso1File = $form->get('cartVerso1')->getData();
@@ -80,13 +80,51 @@ class SouscripteurController extends AbstractController
             $compoMenageFile = $form->get('compoMenage')->getData();
             $autreDocFile = $form->get('autreDoc')->getData();
 
-            if(($cartrecto1File instanceof UploadedFile) && ($cartverso1File instanceof UploadedFile)
+            if(isset($cartrecto1File)){
+                $recto1fileName = $fileUploader1->upload($cartrecto1File);
+                $souscripteur->setCartRecto1($recto1fileName);
+            }
+            
+            if(isset($cartverso1File)){
+                $verso1fileName = $fileUploader2->upload($cartverso1File);
+                $souscripteur->setCartVerso1($verso1fileName);
+            }
+                
+                if(isset($cartrecto2File)){
+                    $recto2fileName = $fileUploader3->upload($cartrecto2File);
+                    $souscripteur->setCartRecto2($recto2fileName);
+                }
+                if(isset($cartverso2File)){
+                    $verso2fileName = $fileUploader4->upload($cartverso2File);
+                    $souscripteur->setCartVerso1($verso2fileName);
+                }
+                if(isset($compoMenageFile)){
+                    $compofileName = $fileUploader5->upload($compoMenageFile);
+                    $souscripteur->setCompoMenage($compofileName);
+                }
+                if(isset($autreDocFile)){
+                    $autrefileName = $fileUploader6->upload($autreDocFile);
+                    $souscripteur->setAutreDoc($autrefileName);
+                }
+                
+
+                
+                
+
+                
+                
+
+                
+                
+
+            /*if(($cartrecto1File instanceof UploadedFile) && ($cartverso1File instanceof UploadedFile)
              && 
              ($cartrecto2File instanceof UploadedFile) && ($cartverso2File instanceof UploadedFile
               &&
               ($compoMenageFile instanceof UploadedFile) && ($autreDocFile instanceof UploadedFile))){
                 
                 $recto1fileName = $fileUploader1->upload($cartrecto1File);
+                echo recto1fileName; die();
                 $verso1fileName = $fileUploader2->upload($cartverso1File);
 
                 $recto2fileName = $fileUploader3->upload($cartrecto2File);
@@ -104,7 +142,7 @@ class SouscripteurController extends AbstractController
                 $souscripteur->setCompoMenage($compofileName);
                 $souscripteur->setAutreDoc($autrefileName);
 
-            }
+            }*/
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($souscripteur);

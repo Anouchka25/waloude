@@ -94,6 +94,15 @@
     "egulias/email-validator": {
         "version": "2.1.8"
     },
+    "elasticsearch/elasticsearch": {
+        "version": "v7.7.0"
+    },
+    "ezimuel/guzzlestreams": {
+        "version": "3.0.1"
+    },
+    "ezimuel/ringphp": {
+        "version": "1.1.2"
+    },
     "facebook/webdriver": {
         "version": "1.7.1"
     },
@@ -183,6 +192,12 @@
     },
     "psr/log": {
         "version": "1.1.0"
+    },
+    "react/promise": {
+        "version": "v2.8.0"
+    },
+    "ruflin/elastica": {
+        "version": "7.0.0"
     },
     "sebastian/code-unit-reverse-lookup": {
         "version": "1.0.1"

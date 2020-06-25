@@ -3,7 +3,8 @@
 <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<title>{% block title %}Waloude Prévoyance Décès{% endblock %}</title>
-	<link rel="stylesheet" href="{{ asset('./fichiers/main.min.css') }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('./fichiers/main.min.css') }}">
   {# <link rel="stylesheet" href="{{ asset('./fichiers/bulma.min.css') }}"> #}
 	<link rel="stylesheet" href="{{ asset('./fichiers/styles.css') }}">
 	<link rel="stylesheet" href="{{ asset('./fichiers/jquery-ui.css') }}">
@@ -12,14 +13,14 @@
 
     <script src="{{ asset('./fichiers/jquery-1.12.4.js') }}"></script>
     <script src="{{ asset('./fichiers/jquery-ui.js') }}"></script>
+    <script src="{{ asset('./fichiers/menu-mobile.js') }}"></script>
     {# <script src="{{ asset('./fichiers/jquery.min.js') }}"></script> #}
     {#<script type="text/javascript" async="" src="{{ asset('./fichiers/hotjar-1054370.js') }}"></script>
     <script type="text/javascript" async="" src="{{ asset('./fichiers/analytics.js') }}"></script>
     <script async="" src="{{ asset('./fichiers/gtm.js') }}"></script>
     
 	<script src="{{ asset('./fichiers/app.min.js') }}" async="" defer=""></script>#}
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	
 <style type="text/css">
 .ui-front{z-index:1000 !important;}
 </style>
@@ -163,16 +164,18 @@ $(function() {
 	<header>
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-      <a href="{{ path('accueil')}}"><img class="navbar-item" src="{{ asset('./fichiers/logo.png') }}" width="300" height="100"></a>
+      <a href="{{ path('accueil')}}">
+      <img class="navbar-item" src="{{ asset('./fichiers/logo.png') }}" width="300" height="100">
+      </a>
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+    <span class="navbar-burger burger" data-target="navbarMenu">
+      <span ></span>
+      <span ></span>
+      <span ></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarMenu" class="navbar-menu">
     <div class="navbar-start">
      <a class="navbar-item" href="{{ path('accueil')}}">Accueil</a>
 				<a class="navbar-item" href="{{ path('waloude')}}">Waloude</a>
@@ -206,11 +209,6 @@ $(function() {
     </div>
   </div>
 </nav>
-
-
-
-
-
 		<div class="container">
     <div class="columns is-mobile">
       <div class="column is-11 is-offset-1">
@@ -235,10 +233,10 @@ $(function() {
 		<div class="container">
 				<div class="column is-12 has-text-right">
 					<span>Suivez-nous sur:</span>
-					<a href="{{ asset('https://symfony.com/') }}"><i class="fab fa-facebook"></i></a>
-					<a href="{{ asset('https://symfony.com/') }}"><i class="fab fa-twitter"></i></i></a>
-					<a href="{{ asset('https://symfony.com/') }}"><i class="fab fa-linkedin"></i></a>
-					<a href="{{ asset('https://symfony.com/') }}"><i class="fab fa-youtube"></i></a>
+					<a href="{{ asset('#') }}"><i class="fab fa-facebook"></i></a>
+					<a href="{{ asset('#') }}"><i class="fab fa-twitter"></i></i></a>
+					<a href="{{ asset('#') }}"><i class="fab fa-linkedin"></i></a>
+					<a href="{{ asset('#') }}"><i class="fab fa-youtube"></i></a>
 				</div>
 			</div>
 		</div>

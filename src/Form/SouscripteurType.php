@@ -15,7 +15,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -49,7 +48,7 @@ class SouscripteurType extends AbstractType
                 'label' => 'Nom de de jeune fille',
                 'attr' => ['class' => 'input'], 
                 ])
-            ->add('date_naissance', BirthdayType::class, [
+            ->add('date_naissance', DateType::class, [
                 'placeholder' => [
                     'day' => 'Jour', 'month' => 'Mois', 'year' => 'Année',  
                 ],
@@ -74,10 +73,10 @@ class SouscripteurType extends AbstractType
                 'label' => 'Ville de résidence *',
                 'attr' => ['class' => 'input'], 
                 ])
-            /* ->add('profession', TextType::class, [
-                'label' => 'Profession',
+            ->add('profession', TextType::class, [
+                'label' => 'Profession *',
                 'attr' => ['class' => 'input'], 
-                ]) */
+                ]) 
             ->add('adresse', TextType::class, [
                 'label' => 'Adresse N° de rue et nom *',
                 'attr' => ['class' => 'input'], 
