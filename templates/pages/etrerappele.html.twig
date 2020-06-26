@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande d'être rappelé{% endblock %}
+<style>
+p{font-size: 18px, color: black;}
+
+</style>
+
+{% block body %}
+
+<section style=" height:200px; background-image: url(../fichiers/waloude.png); background-repeat: no-repeat; !important;">
+     <h1 style="padding-left:20px; padding-top:70px; font-size:29px; color:black; font-weight:bold;">Etre rappelé</h1>
+     </section>
+
+     {% include 'trait.html.twig' %}
+<section >
+    <div class="columns">
+    <div class="column">
+    <p>Votre demande d'être rappelé à bien été reçu, nous vous appelons dès que possible</p>
+
+</div>
+</div>
+</section>
+
+
+
+{% endblock %}

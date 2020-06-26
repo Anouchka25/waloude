@@ -18,7 +18,9 @@
 	$headers.= "Content-Type:text/html; charset=UTF-8";
 	if($email != "") {
 		mail($to,$email_subject,$email_body,$headers);
-		return true;
+		//return true;
+		header('Location: http://test.waloude.org/pages/etrerappele');
+        exit();
 	}
 	else echo "Votre email n'est pas correct"
 
