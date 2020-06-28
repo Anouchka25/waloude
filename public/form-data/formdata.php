@@ -19,7 +19,7 @@
 	if($email != "") {
 		mail($to,$email_subject,$email_body,$headers);
 		//return true;
-		header('Location: http://test.waloude.org/pages/etrerappele');
+		header('Location: http://waloude.org/pages/etrerappele');
         exit();
 	}
 	else echo "Votre email n'est pas correct"

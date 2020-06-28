@@ -61,7 +61,7 @@ class PagesController extends AbstractController
      */
     public function waloude(): Response
     {
-        return $this->render('pages/waloude.html.twig');
+        return $this->render('pages/presentation.html.twig');
     }
 
      /**
